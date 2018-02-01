@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2baaefce3d6835640a97995dd066a4c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ships: []
 --- !u!4 &314804219
 Transform:
   m_ObjectHideFlags: 0
@@ -347,11 +348,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4812262274955696, guid: d92d0ec95c2731b4caa87a2c2461f103, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.43
+      value: -9.93
       objectReference: {fileID: 0}
     - target: {fileID: 4812262274955696, guid: d92d0ec95c2731b4caa87a2c2461f103, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.94
+      value: -6.19
       objectReference: {fileID: 0}
     - target: {fileID: 4812262274955696, guid: d92d0ec95c2731b4caa87a2c2461f103, type: 2}
       propertyPath: m_LocalPosition.z
@@ -377,49 +378,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1434943563036332, guid: d92d0ec95c2731b4caa87a2c2461f103, type: 2}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212626896470801732, guid: d92d0ec95c2731b4caa87a2c2461f103,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: -1059666341
-      objectReference: {fileID: 0}
-    - target: {fileID: 212626896470801732, guid: d92d0ec95c2731b4caa87a2c2461f103,
-        type: 2}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d92d0ec95c2731b4caa87a2c2461f103, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1330319685 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1434943563036332, guid: d92d0ec95c2731b4caa87a2c2461f103,
-    type: 2}
-  m_PrefabInternal: {fileID: 1330319684}
---- !u!65 &1330319686
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1330319685}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 2.495455, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1330319687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1330319685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 262be365473c8124cba12becd25ac6cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selected: 0
