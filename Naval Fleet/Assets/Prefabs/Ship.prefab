@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4812262274955696}
   - component: {fileID: 212626896470801732}
   m_Layer: 0
-  m_Name: Pirate ship
+  m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

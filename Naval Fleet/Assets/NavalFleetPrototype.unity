@@ -265,11 +265,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4812262274955696, guid: d92d0ec95c2731b4caa87a2c2461f103, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.3
+      value: 2.43
       objectReference: {fileID: 0}
     - target: {fileID: 4812262274955696, guid: d92d0ec95c2731b4caa87a2c2461f103, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.59
+      value: -2.94
       objectReference: {fileID: 0}
     - target: {fileID: 4812262274955696, guid: d92d0ec95c2731b4caa87a2c2461f103, type: 2}
       propertyPath: m_LocalPosition.z
@@ -295,9 +295,51 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1434943563036332, guid: d92d0ec95c2731b4caa87a2c2461f103, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212626896470801732, guid: d92d0ec95c2731b4caa87a2c2461f103,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -1059666341
+      objectReference: {fileID: 0}
+    - target: {fileID: 212626896470801732, guid: d92d0ec95c2731b4caa87a2c2461f103,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d92d0ec95c2731b4caa87a2c2461f103, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1330319685 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1434943563036332, guid: d92d0ec95c2731b4caa87a2c2461f103,
+    type: 2}
+  m_PrefabInternal: {fileID: 1330319684}
+--- !u!65 &1330319686
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1330319685}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 2.495455, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1330319687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1330319685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 262be365473c8124cba12becd25ac6cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1786537779
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +349,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1786537781}
   - component: {fileID: 1786537780}
+  - component: {fileID: 1786537782}
+  - component: {fileID: 1786537783}
   m_Layer: 0
   m_Name: Background Ocean
   m_TagString: Untagged
@@ -365,9 +409,32 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1786537779}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.95}
   m_LocalScale: {x: 9.73013, y: 6.1542196, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1786537782
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1786537779}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.0117648, y: 3.0117648, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1786537783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1786537779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c803da19f418e5c4ebe854045671f964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
