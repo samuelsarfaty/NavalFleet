@@ -15,6 +15,8 @@ public class Ocean : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
-		print ("clicked sea");
+		Vector2 mousePos = Input.mousePosition;
+		mousePos = Camera.main.ScreenToWorldPoint (mousePos);
+		print ("sea clicked at " + mousePos);
 	}
 }
