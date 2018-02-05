@@ -48,6 +48,11 @@ public class Ship : MonoBehaviour {
 		canMove = false;																	//Disable player's ability to keep moving until coroutine finishes
 		Vector2 currentPos = new Vector2 (transform.position.x, transform.position.y);		//Get the player's current position as Vector 2
 
+		Vector2 diff = destination - currentPos;											//This bit was taken from the Unity Forum.					
+		diff.Normalize ();																	// It shows how to rotate the 2D object to look at the destination
+		float rotZ = Mathf.Atan2 (diff.y, diff.x) * Mathf.Rad2Deg;							// Link here: https://answers.unity.com/questions/585035/lookat-2d-equivalent-.html
+		transform.rotation = Quaternion.Euler (0, 0, rotZ + 90);						
+
 		float step = (speed / (destination - currentPos).magnitude * Time.deltaTime);		//Calculate the value of each step by dividing speed by the difference between the current position and the target position
 		float t = 0;
 		while (t <= 1.0f) {
