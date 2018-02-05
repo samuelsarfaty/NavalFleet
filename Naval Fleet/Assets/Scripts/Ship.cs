@@ -10,13 +10,15 @@ public class Ship : MonoBehaviour {
 	public bool selected;
 	public float speed;
 
-	void Awake(){
+	private GameObject selectionCircle;
 
+	void Awake(){
+		selectionCircle = transform.GetChild (0).gameObject;
 	}
 
 	// Use this for initialization
 	void Start () {
-
+		selectionCircle.gameObject.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -36,12 +38,14 @@ public class Ship : MonoBehaviour {
 		}
 	}
 
-	public void SelectShip(){
+	public void SelectShip(){ //This function includes all the actions to take when a ship is selected.
 		selected = true;
+		selectionCircle.gameObject.SetActive (true);
 	}
 
-	public void DeSelectShip(){
+	public void DeSelectShip(){ //This function does the opposite of SelectShip.
 		selected = false;
+		selectionCircle.gameObject.SetActive (false);
 	}
 
 	IEnumerator MoveToPoint(Vector2 destination){
