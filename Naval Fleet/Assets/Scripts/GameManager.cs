@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-	public List<Ship> ships = new List<Ship>();
-
 	// Use this for initialization
 	void Start () {
 		
