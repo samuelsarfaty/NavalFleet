@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4925698448779616}
   - component: {fileID: 212863251160359444}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Selector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 212626896470801732}
   - component: {fileID: 114732611862150978}
   - component: {fileID: 61987719387488614}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 58398669876215294}
   - component: {fileID: 50636771753095742}
   - component: {fileID: 114522270287071194}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AttackRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1434943563036332}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -2.54, y: 4.67, z: 0}
+  m_LocalPosition: {x: -7.56, y: 1.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4925698448779616}
@@ -133,7 +133,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -188,8 +188,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 1
   isAttacking: 0
+  engagedEnemy: {fileID: 0}
   selected: 0
   speed: 2
+  health: 20
+  damage: 5
+  reloadTime: 2
+  accuracy: 0.8
 --- !u!212 &212626896470801732
 SpriteRenderer:
   m_ObjectHideFlags: 1

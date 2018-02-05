@@ -9,13 +9,19 @@ public class Ship : MonoBehaviour {
 	public bool canMove = true;
 	[HideInInspector]
 	public bool isAttacking = false;
+	//[HideInInspector]
+	public Enemy engagedEnemy;
 
 	public bool selected;
 	public float speed;
 	public float health;
-
+	public float damage;
+	public float reloadTime;
+	public float accuracy;
 
 	private GameObject selectionCircle;
+	private bool canShoot = true;
+
 
 	void Awake(){
 		selectionCircle = transform.GetChild (0).gameObject; //Represents the Selector child
@@ -28,7 +34,13 @@ public class Ship : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (isAttacking && canShoot) {
+			StartCoroutine (FightSequence ());
+		}
+
+		if (health <= 0) {
+			Destroy (gameObject);
+		}
 	}
 
 	void OnMouseDown(){
@@ -79,4 +91,19 @@ public class Ship : MonoBehaviour {
 
 	}
 
+	IEnumerator FightSequence(){ // Calls the attack function once, then disables the ability to attack again until reload time is complete.
+		Attack ();
+		canShoot = false;
+		yield return new WaitForSeconds (reloadTime);
+		canShoot = true;
+	}
+
+	void Attack(){ //Generate a random value from 0-1. If the number is lower than accuracy, ship hits enemy. Otherwise wait for reload and try agian.
+		print ("attacking");
+		float hitChance = Random.value;
+
+		if (Random.value <= accuracy) {
+			engagedEnemy.health -= damage;
+		}
+	}
 }

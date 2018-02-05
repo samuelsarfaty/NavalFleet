@@ -13,10 +13,10 @@ TagManager:
   - UI
   - 
   - 
-  - Ship
-  - 
-  - 
-  - 
+  - Friendly Ship
+  - Enemy Ship
+  - Friendly Radius
+  - Enemy Radius
   - 
   - 
   - 

@@ -6,13 +6,19 @@ public class Enemy : MonoBehaviour {
 
 	[HideInInspector]
 	public bool isAttacking = false;
+	[HideInInspector]
+	public Ship engagedShip;
 	public float damageToMotherhip;
-
 	public float speed;
 	public float health;
+	public float damage;
+	public float reloadTime;
+	public float accuracy;
+
 
 	private Mothership mothership;
 	private Vector2 target;
+	private bool canShoot = true;
 
 	void Awake(){
 		mothership = GameObject.FindObjectOfType<Mothership> ();
@@ -22,12 +28,18 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//Make enemies go straight to the mothership
-		StartCoroutine (MoveToPoint (target));
+		Move();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (isAttacking && canShoot) {
+			StartCoroutine (FightSequence ());
+		}
+
+		if (health <= 0) {
+			Destroy (gameObject);
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -57,4 +69,24 @@ public class Enemy : MonoBehaviour {
 		}
 
 	}
+
+	public void Move(){
+		StartCoroutine (MoveToPoint (target));
+	}
+
+	IEnumerator FightSequence(){
+		Attack ();
+		canShoot = false;
+		yield return new WaitForSeconds (reloadTime);
+		canShoot = true;
+	}
+
+	void Attack(){
+		float hitChance = Random.value;
+
+		if (Random.value <= accuracy) {
+			engagedShip.health -= damage;
+		}
+	}
+		
 }
