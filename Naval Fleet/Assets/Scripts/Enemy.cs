@@ -6,8 +6,10 @@ public class Enemy : MonoBehaviour {
 
 	[HideInInspector]
 	public bool isAttacking = false;
-	public float speed;
 	public float damageToMotherhip;
+
+	public float speed;
+	public float health;
 
 	private Mothership mothership;
 	private Vector2 target;

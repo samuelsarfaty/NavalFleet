@@ -9,13 +9,16 @@ public class Ship : MonoBehaviour {
 	public bool canMove = true;
 	[HideInInspector]
 	public bool isAttacking = false;
+
 	public bool selected;
 	public float speed;
+	public float health;
+
 
 	private GameObject selectionCircle;
 
 	void Awake(){
-		selectionCircle = transform.GetChild (0).gameObject;
+		selectionCircle = transform.GetChild (0).gameObject; //Represents the Selector child
 	}
 
 	// Use this for initialization
@@ -58,6 +61,7 @@ public class Ship : MonoBehaviour {
 		canMove = false;																	//Disable player's ability to keep tapping until coroutine finishes
 		Vector2 currentPos = new Vector2 (transform.position.x, transform.position.y);		//Get the player's current position as Vector 2
 
+																						
 		Vector2 diff = destination - currentPos;											//This bit was taken from the Unity Forum.					
 		diff.Normalize ();																	// It shows how to rotate the 2D object to look at the destination
 		float rotZ = Mathf.Atan2 (diff.y, diff.x) * Mathf.Rad2Deg;							// Link here: https://answers.unity.com/questions/585035/lookat-2d-equivalent-.html
@@ -74,11 +78,5 @@ public class Ship : MonoBehaviour {
 		canMove = true;																		//Once the moving sequence is finished, the player can move again.
 
 	}
-
-	public void Attack(){
-		print ("attacking enemy");
-	}
-
-
 
 }
