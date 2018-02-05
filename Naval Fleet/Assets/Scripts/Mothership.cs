@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Mothership : MonoBehaviour {
 
+	public float health;
+
+	void Awake(){
+		health = 100;
+	}
+
 	// Use this for initialization
 	void Start () {
 		
