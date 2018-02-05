@@ -2,23 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : MonoBehaviour {
+public class Enemy : MonoBehaviour {
 
-
-	[HideInInspector]
-	public bool canMove = true;
-	public bool selected;
 	public float speed;
 
-	private GameObject selectionCircle;
+	private Mothership mothership;
+	private Vector2 target;
 
 	void Awake(){
-		selectionCircle = transform.GetChild (0).gameObject;
+		mothership = GameObject.FindObjectOfType<Mothership> ();
+		target = new Vector2 (mothership.transform.position.x, mothership.transform.position.y);
 	}
 
 	// Use this for initialization
 	void Start () {
-		selectionCircle.gameObject.SetActive (false);
+		//Make enemies go straight to the mothership
+		StartCoroutine (MoveToPoint (target));
 	}
 	
 	// Update is called once per frame
@@ -26,30 +25,7 @@ public class Ship : MonoBehaviour {
 		
 	}
 
-	void OnMouseDown(){
-		// Find all the ships and iterate through them. If it finds this ship, select it and deselect all others.
-		Ship[] ships = GameObject.FindObjectsOfType<Ship> ();
-		for (int i = 0; i < ships.Length; i++) {
-			if (ships [i] == this && ships[i].selected == false) {
-				SelectShip ();
-			} else {
-				ships [i].DeSelectShip ();
-			}
-		}
-	}
-
-	public void SelectShip(){ //This function includes all the actions to take when a ship is selected.
-		selected = true;
-		selectionCircle.gameObject.SetActive (true);
-	}
-
-	public void DeSelectShip(){ //This function does the opposite of SelectShip.
-		selected = false;
-		selectionCircle.gameObject.SetActive (false);
-	}
-
 	IEnumerator MoveToPoint(Vector2 destination){
-		canMove = false;																	//Disable player's ability to keep tapping until coroutine finishes
 		Vector2 currentPos = new Vector2 (transform.position.x, transform.position.y);		//Get the player's current position as Vector 2
 
 		Vector2 diff = destination - currentPos;											//This bit was taken from the Unity Forum.					
@@ -65,12 +41,6 @@ public class Ship : MonoBehaviour {
 			yield return new WaitForEndOfFrame ();											//Wait for next frame and repeat until t = 1.
 
 		}
-		canMove = true;																		//Once the moving sequence is finished, the player can move again.
 
 	}
-
-	public void Move(Vector2 destination){ //Use this helper function as the MoveToPoint coroutine cannot be called from outside of this script.
-		StartCoroutine (MoveToPoint (destination));
-	}
-
 }
