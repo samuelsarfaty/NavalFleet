@@ -12,6 +12,6 @@ public class FreezeRotation : MonoBehaviour {
 
 
 	void LateUpdate(){
-		transform.rotation = rotation;
+		transform.rotation = rotation; //Freezes the rotation of the ship's canvas so that it is always facing the right direction regardless of the ship's rotation.
 	}
 }

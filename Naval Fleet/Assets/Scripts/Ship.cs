@@ -24,18 +24,17 @@ public class Ship : MonoBehaviour {
 
 	void Awake(){
 		selectionCircle = transform.GetChild (0).gameObject; //Represents the Selector child
-		attributes = GetComponent<ShipAttributes>();
 		shootingEffect = transform.GetChild(1).gameObject; //Represents the Shooting effect child.
+
+		attributes = GetComponent<ShipAttributes>();
 		source = GetComponent<AudioSource>();
 	}
-
-	// Use this for initialization
+		
 	void Start () {
 		selectionCircle.gameObject.SetActive (false);
 		shootingEffect.gameObject.SetActive (false);
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		if (isAttacking && canShoot) {
 			StartCoroutine (FightSequence ());
@@ -70,6 +69,10 @@ public class Ship : MonoBehaviour {
 
 	public void Move(Vector2 destination){ //Use this helper function as the MoveToPoint coroutine cannot be called from outside of this script.
 		StartCoroutine (MoveToPoint (destination));
+	}
+		
+	public void RotateShot(){ //Rotates the cannon particle effect to look at the enemy ship. Called from the AttackRadius script.
+		shootingEffect.transform.LookAt (engagedEnemy.transform);
 	}
 
 	IEnumerator MoveToPoint(Vector2 destination){
@@ -110,10 +113,6 @@ public class Ship : MonoBehaviour {
 		if (hitChance <= attributes.accuracy) {
 			engagedEnemy.attributes.health -= attributes.damage;
 		}
-	}
-
-	public void RotateShot(){ //Rotates the cannon particle effect to look at the enemy ship. Called from the AttackRadius script.
-		shootingEffect.transform.LookAt (engagedEnemy.transform);
 	}
 		
 }

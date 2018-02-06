@@ -26,15 +26,13 @@ public class Enemy : MonoBehaviour {
 		source = GetComponent<AudioSource> ();
 		target = new Vector2 (mothership.transform.position.x, mothership.transform.position.y);
 	}
-
-	// Use this for initialization
+		
 	void Start () {
 		//Make enemies go straight to the mothership
 		Move();
 		shootingEffect.gameObject.SetActive (false);
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		if (isAttacking && canShoot) {
 			StartCoroutine (FightSequence ());

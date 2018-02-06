@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class Ocean : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	void OnMouseDown(){
 		//Get the position of the click and change it to world coordinates.	
 		Vector2 mousePos = Input.mousePosition;
