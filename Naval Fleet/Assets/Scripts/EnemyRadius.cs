@@ -13,6 +13,7 @@ public class EnemyRadius : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.GetComponent<Ship> ()) {
 			parentEnemy.engagedShip = other.GetComponent<Ship>();
+			parentEnemy.RotateShot ();
 			parentEnemy.isAttacking = true;
 		}
 	}

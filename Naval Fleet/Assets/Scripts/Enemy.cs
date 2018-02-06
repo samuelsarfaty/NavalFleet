@@ -20,11 +20,13 @@ public class Enemy : MonoBehaviour {
 
 	private Mothership mothership;
 	private Vector2 target;
+	private GameObject shootingEffect;
 	private bool canShoot = true;
 
 	void Awake(){
 		mothership = GameObject.FindObjectOfType<Mothership> ();
 		attributes = GetComponent<ShipAttributes> ();
+		shootingEffect = transform.GetChild (0).gameObject;
 		target = new Vector2 (mothership.transform.position.x, mothership.transform.position.y);
 	}
 
@@ -32,6 +34,7 @@ public class Enemy : MonoBehaviour {
 	void Start () {
 		//Make enemies go straight to the mothership
 		Move();
+		shootingEffect.gameObject.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -81,15 +84,22 @@ public class Enemy : MonoBehaviour {
 		Attack ();
 		canShoot = false;
 		yield return new WaitForSeconds (attributes.reloadTime);
+		shootingEffect.gameObject.SetActive (false);
 		canShoot = true;
 	}
 
 	void Attack(){
+		shootingEffect.gameObject.SetActive(true);
 		float hitChance = Random.value;
 
 		if (Random.value <= attributes.accuracy) {
 			engagedShip.attributes.health -= attributes.damage;
 		}
 	}
+
+	public void RotateShot(){
+		shootingEffect.transform.LookAt (engagedShip.transform);
+	}
+
 		
 }

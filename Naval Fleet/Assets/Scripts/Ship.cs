@@ -16,17 +16,20 @@ public class Ship : MonoBehaviour {
 	public bool selected;
 
 	private GameObject selectionCircle;
+	private GameObject shootingEffect;
 	private bool canShoot = true;
 
 
 	void Awake(){
 		selectionCircle = transform.GetChild (0).gameObject; //Represents the Selector child
 		attributes = GetComponent<ShipAttributes>();
+		shootingEffect = transform.GetChild(1).gameObject; //Represents the Shooting effect child.
 	}
 
 	// Use this for initialization
 	void Start () {
 		selectionCircle.gameObject.SetActive (false);
+		shootingEffect.gameObject.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -92,15 +95,21 @@ public class Ship : MonoBehaviour {
 		Attack ();
 		canShoot = false;
 		yield return new WaitForSeconds (attributes.reloadTime);
+		shootingEffect.gameObject.SetActive (false);
 		canShoot = true;
 	}
 
 	void Attack(){ //Generate a random value from 0-1. If the number is lower than accuracy, ship hits enemy. Otherwise wait for reload and try agian.
-		print ("attacking");
+		shootingEffect.gameObject.SetActive(true);
 		float hitChance = Random.value;
 
 		if (hitChance <= attributes.accuracy) {
 			engagedEnemy.attributes.health -= attributes.damage;
 		}
 	}
+
+	public void RotateShot(){
+		shootingEffect.transform.LookAt (engagedEnemy.transform);
+	}
+		
 }
