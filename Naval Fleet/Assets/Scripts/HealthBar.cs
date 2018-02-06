@@ -9,6 +9,8 @@ public class HealthBar : MonoBehaviour {
 	private Image healthBar;
 	private float startHealth;
 
+	//This script gets the parent's health and displays it on the bar filling.
+
 	void Awake(){
 		myShip = transform.GetComponentInParent<ShipAttributes> ();
 		healthBar = GetComponent<Image> ();

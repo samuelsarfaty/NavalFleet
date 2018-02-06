@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 223149255928607674}
   - component: {fileID: 114593588040712880}
   - component: {fileID: 114527478997053692}
+  - component: {fileID: 114869572327173638}
   m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
@@ -289,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.027586224, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -320,6 +321,17 @@ MonoBehaviour:
   engagedEnemy: {fileID: 0}
   attributes: {fileID: 0}
   selected: 0
+--- !u!114 &114869572327173638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1781467613639206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80675504e33c53438e1744133162833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212626896470801732
 SpriteRenderer:
   m_ObjectHideFlags: 1
