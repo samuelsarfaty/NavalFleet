@@ -99,7 +99,7 @@ public class Ship : MonoBehaviour {
 		print ("attacking");
 		float hitChance = Random.value;
 
-		if (Random.value <= attributes.accuracy) {
+		if (hitChance <= attributes.accuracy) {
 			engagedEnemy.attributes.health -= attributes.damage;
 		}
 	}

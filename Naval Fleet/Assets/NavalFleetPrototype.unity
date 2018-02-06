@@ -377,13 +377,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 1864507986586788, guid: d92d0ec95c2731b4caa87a2c2461f103, type: 2}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4777262707120156, guid: d92d0ec95c2731b4caa87a2c2461f103, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.1
+    - target: {fileID: 212863251160359444, guid: d92d0ec95c2731b4caa87a2c2461f103,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d92d0ec95c2731b4caa87a2c2461f103, type: 2}
