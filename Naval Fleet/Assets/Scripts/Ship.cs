@@ -11,13 +11,9 @@ public class Ship : MonoBehaviour {
 	public bool isAttacking = false;
 	[HideInInspector]
 	public Enemy engagedEnemy;
-
+	[HideInInspector]
+	public ShipAttributes attributes;
 	public bool selected;
-	public float speed;
-	public float health;
-	public float damage;
-	public float reloadTime;
-	public float accuracy;
 
 	private GameObject selectionCircle;
 	private bool canShoot = true;
@@ -25,6 +21,7 @@ public class Ship : MonoBehaviour {
 
 	void Awake(){
 		selectionCircle = transform.GetChild (0).gameObject; //Represents the Selector child
+		attributes = GetComponent<ShipAttributes>();
 	}
 
 	// Use this for initialization
@@ -38,7 +35,7 @@ public class Ship : MonoBehaviour {
 			StartCoroutine (FightSequence ());
 		}
 
-		if (health <= 0) {
+		if (attributes.health <= 0) {
 			Destroy (gameObject);
 		}
 	}
@@ -79,7 +76,7 @@ public class Ship : MonoBehaviour {
 		float rotZ = Mathf.Atan2 (diff.y, diff.x) * Mathf.Rad2Deg;							// Link here: https://answers.unity.com/questions/585035/lookat-2d-equivalent-.html
 		transform.rotation = Quaternion.Euler (0, 0, rotZ + 90);						
 
-		float step = (speed / (destination - currentPos).magnitude * Time.deltaTime);		//Calculate the value of each step by dividing speed by the difference between the current position and the target position
+		float step = (attributes.speed / (destination - currentPos).magnitude * Time.deltaTime);		//Calculate the value of each step by dividing speed by the difference between the current position and the target position
 		float t = 0;
 		while (t <= 1.0f && !isAttacking) {
 			t += step;																	//Increase the value of t by step on each pass. 
@@ -94,7 +91,7 @@ public class Ship : MonoBehaviour {
 	IEnumerator FightSequence(){ // Calls the attack function once, then disables the ability to attack again until reload time is complete.
 		Attack ();
 		canShoot = false;
-		yield return new WaitForSeconds (reloadTime);
+		yield return new WaitForSeconds (attributes.reloadTime);
 		canShoot = true;
 	}
 
@@ -102,8 +99,8 @@ public class Ship : MonoBehaviour {
 		print ("attacking");
 		float hitChance = Random.value;
 
-		if (Random.value <= accuracy) {
-			engagedEnemy.health -= damage;
+		if (Random.value <= attributes.accuracy) {
+			engagedEnemy.attributes.health -= attributes.damage;
 		}
 	}
 }

@@ -8,12 +8,14 @@ public class Enemy : MonoBehaviour {
 	public bool isAttacking = false;
 	[HideInInspector]
 	public Ship engagedShip;
+	[HideInInspector]
+	public ShipAttributes attributes;
 	public float damageToMotherhip;
-	public float speed;
-	public float health;
-	public float damage;
-	public float reloadTime;
-	public float accuracy;
+	//public float speed;
+	//public float health;
+	//public float damage;
+	//public float reloadTime;
+	//public float accuracy;
 
 
 	private Mothership mothership;
@@ -22,6 +24,7 @@ public class Enemy : MonoBehaviour {
 
 	void Awake(){
 		mothership = GameObject.FindObjectOfType<Mothership> ();
+		attributes = GetComponent<ShipAttributes> ();
 		target = new Vector2 (mothership.transform.position.x, mothership.transform.position.y);
 	}
 
@@ -37,7 +40,7 @@ public class Enemy : MonoBehaviour {
 			StartCoroutine (FightSequence ());
 		}
 
-		if (health <= 0) {
+		if (attributes.health <= 0) {
 			Destroy (gameObject);
 		}
 	}
@@ -59,7 +62,7 @@ public class Enemy : MonoBehaviour {
 		float rotZ = Mathf.Atan2 (diff.y, diff.x) * Mathf.Rad2Deg;							// Link here: https://answers.unity.com/questions/585035/lookat-2d-equivalent-.html
 		transform.rotation = Quaternion.Euler (0, 0, rotZ + 90);						
 
-		float step = (speed / (destination - currentPos).magnitude * Time.deltaTime);		//Calculate the value of each step by dividing speed by the difference between the current position and the target position
+		float step = (attributes.speed / (destination - currentPos).magnitude * Time.deltaTime);		//Calculate the value of each step by dividing speed by the difference between the current position and the target position
 		float t = 0;
 		while (t <= 1.0f && !isAttacking) {
 			t += step;																		//Increase the value of t by step on each pass. 
@@ -77,15 +80,15 @@ public class Enemy : MonoBehaviour {
 	IEnumerator FightSequence(){
 		Attack ();
 		canShoot = false;
-		yield return new WaitForSeconds (reloadTime);
+		yield return new WaitForSeconds (attributes.reloadTime);
 		canShoot = true;
 	}
 
 	void Attack(){
 		float hitChance = Random.value;
 
-		if (Random.value <= accuracy) {
-			engagedShip.health -= damage;
+		if (Random.value <= attributes.accuracy) {
+			engagedShip.attributes.health -= attributes.damage;
 		}
 	}
 		
