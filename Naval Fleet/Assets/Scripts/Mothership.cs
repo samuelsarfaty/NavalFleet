@@ -7,7 +7,7 @@ public class Mothership : MonoBehaviour {
 	public float health;
 
 	void Awake(){
-		health = 100;
+		
 	}
 
 }
