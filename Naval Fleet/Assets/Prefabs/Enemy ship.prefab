@@ -167,13 +167,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAttacking: 0
+  engagedShip: {fileID: 0}
   damageToMotherhip: 15
   speed: 1
   health: 15
   damage: 5
-  reloadTime: 1.7
+  reloadTime: 1
   accuracy: 0.7
-  engagedShip: {fileID: 0}
 --- !u!114 &114517874740915110
 MonoBehaviour:
   m_ObjectHideFlags: 1

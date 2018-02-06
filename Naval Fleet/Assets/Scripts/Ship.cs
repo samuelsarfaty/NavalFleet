@@ -9,7 +9,7 @@ public class Ship : MonoBehaviour {
 	public bool canMove = true;
 	[HideInInspector]
 	public bool isAttacking = false;
-	//[HideInInspector]
+	[HideInInspector]
 	public Enemy engagedEnemy;
 
 	public bool selected;
