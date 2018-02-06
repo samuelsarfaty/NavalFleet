@@ -11,22 +11,19 @@ public class Enemy : MonoBehaviour {
 	[HideInInspector]
 	public ShipAttributes attributes;
 	public float damageToMotherhip;
-	//public float speed;
-	//public float health;
-	//public float damage;
-	//public float reloadTime;
-	//public float accuracy;
-
+	public AudioClip cannonSound;
 
 	private Mothership mothership;
 	private Vector2 target;
 	private GameObject shootingEffect;
+	private AudioSource source;
 	private bool canShoot = true;
 
 	void Awake(){
 		mothership = GameObject.FindObjectOfType<Mothership> ();
 		attributes = GetComponent<ShipAttributes> ();
 		shootingEffect = transform.GetChild (0).gameObject;
+		source = GetComponent<AudioSource> ();
 		target = new Vector2 (mothership.transform.position.x, mothership.transform.position.y);
 	}
 
@@ -91,6 +88,7 @@ public class Enemy : MonoBehaviour {
 	void Attack(){
 		shootingEffect.gameObject.SetActive(true);
 		float hitChance = Random.value;
+		source.PlayOneShot (cannonSound);
 
 		if (Random.value <= attributes.accuracy) {
 			engagedShip.attributes.health -= attributes.damage;

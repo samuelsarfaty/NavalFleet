@@ -14,9 +14,11 @@ public class Ship : MonoBehaviour {
 	[HideInInspector]
 	public ShipAttributes attributes;
 	public bool selected;
+	public AudioClip cannonSound;
 
 	private GameObject selectionCircle;
 	private GameObject shootingEffect;
+	private AudioSource source;
 	private bool canShoot = true;
 
 
@@ -24,6 +26,7 @@ public class Ship : MonoBehaviour {
 		selectionCircle = transform.GetChild (0).gameObject; //Represents the Selector child
 		attributes = GetComponent<ShipAttributes>();
 		shootingEffect = transform.GetChild(1).gameObject; //Represents the Shooting effect child.
+		source = GetComponent<AudioSource>();
 	}
 
 	// Use this for initialization
@@ -102,13 +105,14 @@ public class Ship : MonoBehaviour {
 	void Attack(){ //Generate a random value from 0-1. If the number is lower than accuracy, ship hits enemy. Otherwise wait for reload and try agian.
 		shootingEffect.gameObject.SetActive(true);
 		float hitChance = Random.value;
+		source.PlayOneShot (cannonSound);
 
 		if (hitChance <= attributes.accuracy) {
 			engagedEnemy.attributes.health -= attributes.damage;
 		}
 	}
 
-	public void RotateShot(){
+	public void RotateShot(){ //Rotates the cannon particle effect to look at the enemy ship. Called from the AttackRadius script.
 		shootingEffect.transform.LookAt (engagedEnemy.transform);
 	}
 		
