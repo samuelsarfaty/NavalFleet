@@ -20,9 +20,7 @@ public class AttackRadius : MonoBehaviour {
 	}
 
 	void OnTriggerStay2D(Collider2D other){
-		print ("stay triggered");
 		if (other.GetComponent<Enemy> () && !parentShip.isAttacking) {
-			print ("attack new enemy");
 			parentShip.engagedEnemy = other.GetComponent<Enemy>();
 			parentShip.RotateShot ();
 			parentShip.isAttacking = true;
