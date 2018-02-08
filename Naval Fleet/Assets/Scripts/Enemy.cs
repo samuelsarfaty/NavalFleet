@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour {
 	public AudioClip cannonSound;
 
 	private Mothership mothership;
-	private Vector2 target;
+	public Vector2 target;
 	private GameObject shootingEffect;
 	private AudioSource source;
 	private bool canShoot = true;
@@ -25,12 +25,14 @@ public class Enemy : MonoBehaviour {
 		shootingEffect = transform.GetChild (0).gameObject;
 		source = GetComponent<AudioSource> ();
 		target = new Vector2 (mothership.transform.position.x, mothership.transform.position.y);
+
 	}
 		
 	void Start () {
 		//Make enemies go straight to the mothership
 		Move();
 		shootingEffect.gameObject.SetActive (false);
+
 	}
 
 	void Update () {

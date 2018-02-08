@@ -19,9 +19,21 @@ public class AttackRadius : MonoBehaviour {
 			
 	}
 
+	void OnTriggerStay2D(Collider2D other){
+		print ("stay triggered");
+		if (other.GetComponent<Enemy> () && !parentShip.isAttacking) {
+			print ("attack new enemy");
+			parentShip.engagedEnemy = other.GetComponent<Enemy>();
+			parentShip.RotateShot ();
+			parentShip.isAttacking = true;
+		}
+	}
+
 	void OnTriggerExit2D(Collider2D other){ //When enemy is destroyed, is attacking returns to false so that the player regains control of the ship.
 		if (other.GetComponent<Enemy> ()) {
 			parentShip.isAttacking = false;
+			parentShip.transform.Rotate (Vector3.forward * 1); 	//Call rotation on ship so that OnTriggerEnter is called again.
+																//This works in case there is more than 1 enemy on the player radius.
 
 		}
 	}
