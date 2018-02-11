@@ -473,8 +473,8 @@ MonoBehaviour:
   health: 20
   speed: 1
   damage: 2
-  accuracy: 0.7
-  reloadTime: 1.2
+  accuracy: 1
+  reloadTime: 0.5
 --- !u!114 &114522270287071194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -618,7 +618,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262be365473c8124cba12becd25ac6cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canMove: 1
   isAttacking: 0
   engagedEnemy: {fileID: 0}
   attributes: {fileID: 0}
@@ -4121,7 +4120,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 8b56dfe93c34304439342e7c2733be58, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a047fd3a01b16804d9163b7c16ed535d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
