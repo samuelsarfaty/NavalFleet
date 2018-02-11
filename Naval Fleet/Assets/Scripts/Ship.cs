@@ -12,8 +12,8 @@ public class Ship : MonoBehaviour {
 	public ShipAttributes attributes;
 	public bool selected;
 	public AudioClip cannonSound;
+	public Coroutine lastRoutine;
 
-	private Ocean ocean;
 	private GameObject propertiesCanvas;
 	private GameObject shootingEffect;
 	private AudioSource source;
@@ -24,7 +24,6 @@ public class Ship : MonoBehaviour {
 	void Awake(){
 		propertiesCanvas = transform.GetChild (0).gameObject; 
 		shootingEffect = transform.GetChild(1).gameObject;
-		ocean = GameObject.FindObjectOfType<Ocean>();
 
 		attributes = GetComponent<ShipAttributes>();
 		source = GetComponent<AudioSource>();
@@ -41,8 +40,8 @@ public class Ship : MonoBehaviour {
 			StartCoroutine (FightSequence ());
 		}
 
-		if (attributes.health <= 0) {
-			Destroy (gameObject);
+		if (attributes.health <= 0 && attributes.isDying == false) {
+			attributes.Die ();
 		}
 	}
 
@@ -71,8 +70,8 @@ public class Ship : MonoBehaviour {
 		propertiesCanvas.gameObject.SetActive (false);
 	}
 
-	public void Move(Vector2 destination){ //Use this helper function as the MoveToPoint coroutine cannot be called from outside of this script.
-		ocean.lastRoutine = StartCoroutine (MoveToPoint (destination));
+	public void Move(Vector2 destination){ //Use this helper function as the MoveToPoint coroutine cannot be called from outside of this script. Set lastRoutine and start moving towards position.
+		lastRoutine = StartCoroutine(MoveToPoint(destination));
 	}
 
 	public void StopMove(Coroutine coroutineToStop){ //When moving multiple times, this function stops the previous MoveToPoint coroutine.
@@ -84,7 +83,7 @@ public class Ship : MonoBehaviour {
 	}
 
 	IEnumerator MoveToPoint(Vector2 destination){
-		if (!isAttacking) {																//Disable player's ability to keep tapping until coroutine finishes
+		if (!isAttacking) {																		//Disable player's ability to keep tapping until coroutine finishes
 			Vector2 currentPos = new Vector2 (transform.position.x, transform.position.y);		//Get the player's current position as Vector 2
 																						
 			Vector2 diff = destination - currentPos;											//This bit was taken from the Unity Forum.					
