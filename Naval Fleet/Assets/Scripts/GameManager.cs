@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
 	public Text moneyText;
-	public static int coins = 50;
+	public static int coins = 200;
 
 	// Use this for initialization
 	void Start () {

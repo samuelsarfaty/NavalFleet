@@ -952,7 +952,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4801502634117204, guid: 7670377bf4efdbc47823aec2c5e31a72, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4801502634117204, guid: 7670377bf4efdbc47823aec2c5e31a72, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1016,6 +1016,10 @@ Prefab:
     - target: {fileID: 212121503573275166, guid: 7670377bf4efdbc47823aec2c5e31a72,
         type: 2}
       propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988154366726320, guid: 7670377bf4efdbc47823aec2c5e31a72, type: 2}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

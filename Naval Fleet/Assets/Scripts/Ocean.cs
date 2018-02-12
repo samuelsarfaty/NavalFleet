@@ -6,6 +6,7 @@ public class Ocean : MonoBehaviour {
 
 	void OnMouseDown(){
 		//Get the position of the click and change it to world coordinates.
+
 		Vector2 mousePos = Input.mousePosition;
 		mousePos = Camera.main.ScreenToWorldPoint (mousePos);
 		Ship[] ships = GameObject.FindObjectsOfType<Ship> ();
