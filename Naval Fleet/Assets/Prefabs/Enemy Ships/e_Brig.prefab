@@ -472,8 +472,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathExplosion: {fileID: 1303822809984904, guid: 9bb0c1e5996ed8f4cab75a9f4ba858d0,
     type: 2}
-  deathExplosionDuration: 0.5
+  explosionSound: {fileID: 8300000, guid: 5442ba42415f6834f9f9cbf70ad372af, type: 3}
+  deathExplosionDuration: 4
   isDying: 0
+  price: 0
   health: 20
   speed: 0.5
   damage: 2

@@ -19,13 +19,13 @@ public class AttackRadius : MonoBehaviour {
 			
 	}
 
-	void OnTriggerStay2D(Collider2D other){
+	/*void OnTriggerStay2D(Collider2D other){
 		if (other.GetComponent<Enemy> () && !parentShip.isAttacking) {
 			parentShip.engagedEnemy = other.GetComponent<Enemy>();
 			parentShip.RotateShot ();
 			parentShip.isAttacking = true;
 		}
-	}
+	}*/
 
 	void OnTriggerExit2D(Collider2D other){ //When enemy is destroyed, is attacking returns to false so that the player regains control of the ship.
 		if (other.GetComponent<Enemy> ()) {

@@ -252,7 +252,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 2.05
 --- !u!61 &61987719387488614
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -472,12 +472,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathExplosion: {fileID: 1303822809984904, guid: 9bb0c1e5996ed8f4cab75a9f4ba858d0,
     type: 2}
+  explosionSound: {fileID: 0}
   deathExplosionDuration: 0.5
   isDying: 0
-  price: 10
-  health: 20
+  price: 100
+  health: 10
   speed: 0.3
-  damage: 4
+  damage: 2
   accuracy: 0.8
   reloadTime: 1
 --- !u!114 &114522270287071194

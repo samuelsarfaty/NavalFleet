@@ -19,7 +19,9 @@ public class Ocean : MonoBehaviour {
 				return;
 			}
 		}
-		SpawnShip (mousePos);
+		if (UnitSelector.selectedShip.GetComponent<ShipAttributes> ().price <= GameManager.coins) {
+			SpawnShip (mousePos);
+		}
 	}
 
 	void SpawnShip(Vector2 spawnLocation){
