@@ -11,6 +11,7 @@ public class ShipAttributes : MonoBehaviour {
 
 	[HideInInspector]
 	public bool isDying = false;
+	public int price;
 	public float health;
 	public float speed;
 	public float damage;

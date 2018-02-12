@@ -350,7 +350,7 @@ MonoBehaviour:
   deathExplosionDuration: 0.5
   isDying: 0
   health: 15
-  speed: 1
+  speed: 0.3
   damage: 5
   accuracy: 0.6
   reloadTime: 1
