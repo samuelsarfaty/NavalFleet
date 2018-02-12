@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
 	public Text moneyText;
-	public static int coins = 200;
+	public static int coins = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -14,6 +14,6 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		moneyText.text = coins.ToString();
+		moneyText.text = coins.ToString(); //Show the amount of coins on the top right text
 	}
 }

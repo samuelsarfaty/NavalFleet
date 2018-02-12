@@ -11,8 +11,11 @@ public class Ocean : MonoBehaviour {
 		mousePos = Camera.main.ScreenToWorldPoint (mousePos);
 		Ship[] ships = GameObject.FindObjectsOfType<Ship> ();
 
-		for (int i = 0; i < ships.Length; i++) { 					//Iterate through all the ships
-			if (ships [i].selected == true) {						//If one of the ships is selected and moving, stop the last movement and move towards new position. Otherwise just move to the clicked position.
+		/*Loop through all the ships. If a ship is selected, stop its current move routine and move it to the clicked position.
+		 * If no ships are selected, spawn a ship and reduce money
+		 */
+		for (int i = 0; i < ships.Length; i++) { 					
+			if (ships [i].selected == true) {						 
 				if (ships [i].lastRoutine != null) {
 					ships [i].StopMove (ships [i].lastRoutine);
 				}
