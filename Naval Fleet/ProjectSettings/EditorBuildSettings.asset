@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Scenes/NavalFleetPrototype.unity
+    guid: 2af19b6b54e26bf459de37d664146648
+  - enabled: 1
+    path: Assets/_Scenes/Win.unity
+    guid: 6051bba760c3e924e93e2a842217274e
+  - enabled: 1
+    path: Assets/_Scenes/Lose.unity
+    guid: 1641fc10c8370f6478df8d13be83de4e
