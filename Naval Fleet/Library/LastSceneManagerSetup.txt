@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/NavalFleetPrototype.unity
+- path: Assets/_Scenes/NavalFleetPrototype.unity
   isLoaded: 1
   isActive: 1
