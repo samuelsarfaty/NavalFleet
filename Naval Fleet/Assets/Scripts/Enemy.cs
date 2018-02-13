@@ -40,8 +40,8 @@ public class Enemy : MonoBehaviour {
 			StartCoroutine (FightSequence ());
 		}
 
-		if (attributes.health <= 0) {
-			Destroy (gameObject);
+		if (attributes.health <= 0 && attributes.isDying == false) {
+			attributes.Die ();
 		}
 	}
 
