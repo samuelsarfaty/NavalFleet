@@ -474,12 +474,12 @@ MonoBehaviour:
     type: 2}
   deathExplosionDuration: 0.5
   isDying: 0
-  price: 40
-  health: 50
-  speed: 0.1
-  damage: 10
-  accuracy: 0.6
-  reloadTime: 2
+  price: 250
+  health: 30
+  speed: 0.15
+  damage: 3
+  accuracy: 0.95
+  reloadTime: 1.5
 --- !u!114 &114522270287071194
 MonoBehaviour:
   m_ObjectHideFlags: 1

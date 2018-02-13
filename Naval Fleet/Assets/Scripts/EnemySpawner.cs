@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour {
 	public float xMaxSpawnPos;
 
 	void Start(){
-		InvokeRepeating ("SpawnEnemy", 5.0f, spawnRate);
+		InvokeRepeating ("SpawnEnemy", 20, spawnRate);
 	}
 
 

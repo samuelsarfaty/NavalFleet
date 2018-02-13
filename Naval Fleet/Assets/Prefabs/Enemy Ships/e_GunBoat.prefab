@@ -331,7 +331,7 @@ MonoBehaviour:
   isAttacking: 0
   engagedShip: {fileID: 0}
   attributes: {fileID: 0}
-  damageToMotherhip: 15
+  damageToMotherhip: 10
   cannonSound: {fileID: 8300000, guid: 14383ca9d2952d04babf51bf7c0fa8a6, type: 3}
   target: {x: 0, y: 0}
 --- !u!114 &114275457921424030
@@ -352,7 +352,7 @@ MonoBehaviour:
   price: 0
   health: 15
   speed: 0.3
-  damage: 5
+  damage: 2
   accuracy: 0.6
   reloadTime: 1
 --- !u!114 &114457146486420616
