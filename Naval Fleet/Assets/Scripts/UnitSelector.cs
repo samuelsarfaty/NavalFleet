@@ -20,7 +20,11 @@ public class UnitSelector : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
-		foreach (UnitSelector selectedShip in buttons) {
+		Ship[] ships = GameObject.FindObjectsOfType<Ship> (); //Deselect whatever ship is selected when clicking on the buttons.
+		foreach (Ship ship in ships) {
+			ship.DeSelectShip ();
+		}
+		foreach (UnitSelector selectedShip in buttons) { //'Turn off' all buttons and then enable the one clicked.
 			selectedShip.DeSelectButton ();
 		}
 		SelectButton ();

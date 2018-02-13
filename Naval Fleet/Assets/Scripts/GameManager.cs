@@ -7,9 +7,11 @@ public class GameManager : MonoBehaviour {
 
 	public Text moneyText;
 	public static int coins;
+	public int startCoins;
 
 	// Use this for initialization
 	void Start () {
+		coins = startCoins;
 	}
 	
 	// Update is called once per frame
