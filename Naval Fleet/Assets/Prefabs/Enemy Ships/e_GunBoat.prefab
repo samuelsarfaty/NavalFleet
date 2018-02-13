@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 58724093432935068}
   - component: {fileID: 50477926885093184}
   - component: {fileID: 114517874740915110}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: EnemyRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4286033529240980}
   - component: {fileID: 199829630097123890}
   - component: {fileID: 198371897867479782}
-  m_Layer: 9
+  m_Layer: 2
   m_Name: Shooting effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 114457146486420616}
   - component: {fileID: 114867206005564762}
   - component: {fileID: 114013975334750268}
-  m_Layer: 9
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 50717595367847912}
   - component: {fileID: 61865217315297328}
   - component: {fileID: 82026025576009812}
-  m_Layer: 9
+  m_Layer: 2
   m_Name: e_GunBoat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 222501672545314380}
   - component: {fileID: 114673233406854752}
   - component: {fileID: 114871164749898480}
-  m_Layer: 9
+  m_Layer: 2
   m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,6 +349,7 @@ MonoBehaviour:
     type: 2}
   deathExplosionDuration: 0.5
   isDying: 0
+  price: 0
   health: 15
   speed: 0.3
   damage: 5
