@@ -49,8 +49,7 @@ public class Enemy : MonoBehaviour {
 
 		//If mothership enters trigger, deal damage and destroy
 		if (other.GetComponent<Mothership> ()) {
-			mothership.health -= damageToMotherhip;
-			Destroy (gameObject);
+			
 		}
 	}
 

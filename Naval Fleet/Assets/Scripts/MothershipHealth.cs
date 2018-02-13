@@ -12,11 +12,11 @@ public class MothershipHealth : MonoBehaviour {
 	void Awake(){
 		mothership = transform.GetComponentInParent<Mothership> ();
 		healthBar = GetComponent<Image> ();
-		startHealth = mothership.health;
+		//startHealth = mothership.health;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		healthBar.fillAmount = mothership.health / startHealth;
+		//healthBar.fillAmount = mothership.health / startHealth;
 	}
 }

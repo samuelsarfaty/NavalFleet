@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Mothership : MonoBehaviour {
 
-	public float health;
 
 	void Awake(){
 		
