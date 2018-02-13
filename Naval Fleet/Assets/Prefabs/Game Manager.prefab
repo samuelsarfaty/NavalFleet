@@ -133,4 +133,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 0}
+  targetText: {fileID: 0}
   startCoins: 50
+  targetCoins: 1000
