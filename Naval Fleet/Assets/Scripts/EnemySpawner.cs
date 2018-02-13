@@ -16,12 +16,12 @@ public class EnemySpawner : MonoBehaviour {
 	}
 
 
-	void SpawnEnemy(){
+	void SpawnEnemy(){ //This function spawns enemies around the player
 		float angle = Random.Range (0.0f, Mathf.PI * 2);
-		Vector2 v = new Vector2 (Mathf.Sin (angle), Mathf.Cos (angle));
+		Vector2 v = new Vector2 (Mathf.Sin (angle), Mathf.Cos (angle)); 	//Got this from https://answers.unity.com/questions/157061/spawning-at-a-random-position-away-from-the-player.html
+																			//My understanding is that creates a random vector 2 around the perimeter of a cricle.
 
 		Instantiate (enemyPrefab, v * range, Quaternion.identity);
-		//Instantiate (enemyPrefab, new Vector2(Random.Range(xMinSpawnPos,xMaxSpawnPos), transform.position.y), Quaternion.identity);
 	}
 
 

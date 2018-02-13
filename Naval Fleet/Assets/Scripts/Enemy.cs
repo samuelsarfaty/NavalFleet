@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour {
 	public Ship engagedShip;
 	[HideInInspector]
 	public ShipAttributes attributes;
-	public float damageToMotherhip;
 	public AudioClip cannonSound;
 
 	private Mothership mothership;
@@ -47,7 +46,7 @@ public class Enemy : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 
-		//If mothership enters trigger, deal damage and destroy
+		//If mothership enters trigger, enemy wins
 		if (other.GetComponent<Mothership> ()) {
 			other.GetComponent<Mothership> ().Die ();
 			Destroy (this.gameObject);

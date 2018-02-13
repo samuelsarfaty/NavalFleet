@@ -83,7 +83,7 @@ public class Ship : MonoBehaviour {
 	}
 
 	IEnumerator MoveToPoint(Vector2 destination){
-		if (!isAttacking) {																		//Disable player's ability to keep tapping until coroutine finishes
+		if (!isAttacking) {																		//Player only allowed to move if he is not engaged
 			Vector2 currentPos = new Vector2 (transform.position.x, transform.position.y);		//Get the player's current position as Vector 2
 																						
 			Vector2 diff = destination - currentPos;											//This bit was taken from the Unity Forum.					
@@ -100,7 +100,6 @@ public class Ship : MonoBehaviour {
 			
 			}
 		}
-																			//Once the moving sequence is finished, the player can move again.
 	}
 
 	IEnumerator FightSequence(){ // Calls the attack function once, then disables the ability to attack again until reload time is complete.

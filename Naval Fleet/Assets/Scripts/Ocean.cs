@@ -16,10 +16,10 @@ public class Ocean : MonoBehaviour {
 					ships [i].StopMove (ships [i].lastRoutine);
 				}
 				ships [i].Move (mousePos);
-				return;
+				return;												//The execution of the function stops if a ship was moved, otherwise, it continues.
 			}
 		}
-		if (GameManager.coins >= UnitSelector.selectedShip.GetComponent<ShipAttributes> ().price) {
+		if (GameManager.coins >= UnitSelector.selectedShip.GetComponent<ShipAttributes> ().price) { //If player has enough money to purchase the selected ship, spawn it.
 			SpawnShip (mousePos);
 		}
 	}

@@ -15,7 +15,7 @@ public class Mothership : MonoBehaviour {
 		lm = GameObject.FindObjectOfType<LevelManager> ();
 	}
 
-	IEnumerator MothershipDeath(){
+	IEnumerator MothershipDeath(){ //Spawm 3 explosions and then load the "Lose" scene
 		Instantiate (deathExplosion, explosionLocation_1.transform.position, Quaternion.identity);
 		yield return new WaitForSeconds (delayBetweenExplosions);
 		Instantiate (deathExplosion, explosionLocation_2.transform.position, Quaternion.identity);
@@ -25,7 +25,7 @@ public class Mothership : MonoBehaviour {
 		lm.LoadLevel ("Lose");
 	}
 
-	public void Die(){
+	public void Die(){ //Helper function used to call the MothershipDeath coroutine from outside this script.
 		StartCoroutine (MothershipDeath());
 	}
 

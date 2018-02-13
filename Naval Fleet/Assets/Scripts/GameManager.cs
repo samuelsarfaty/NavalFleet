@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		moneyText.text = coins.ToString();
-		if (coins == targetCoins) {
+		if (coins == targetCoins) {	
 			levelManager.LoadLevel ("Win");
 		}
 	}

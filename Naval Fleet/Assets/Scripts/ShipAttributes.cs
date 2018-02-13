@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ShipAttributes : MonoBehaviour {
 
-	//Separated these attributes from the main script of the ship so that I can access them independently of whether they belong to a friendly or enemy ship.
+	//Here are the variables and functions that work exactly the same way for both friendly and enemy ships.
+	//I thought it would have been a good idea to make the friendly and enemy ships inherit from this class but I chose this way since I'm not too acquainted with how inheritance works.
 
 	public GameObject deathExplosion;
 	public float deathExplosionDuration;

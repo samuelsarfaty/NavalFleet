@@ -12,11 +12,6 @@ public class FishingBoat : MonoBehaviour {
 	void Start () {
 		InvokeRepeating ("IncreaseMoney", rate, rate);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	void IncreaseMoney(){
 		Instantiate (coinEffect, transform.position, Quaternion.identity);

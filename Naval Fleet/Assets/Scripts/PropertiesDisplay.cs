@@ -17,7 +17,7 @@ public class PropertiesDisplay : MonoBehaviour {
 
 	}
 
-	void UpdateText(){ //Turn the values of damage, accuracy, and reload speed to text and display them below the selected ship.
+	void UpdateText(){ //Turn the values of damage, accuracy, and speed to text and display them below the selected ship.
 		damage.text = myShip.damage.ToString ();
 		accuracy.text = myShip.accuracy.ToString ();
 		reload.text = myShip.speed.ToString ();
