@@ -8,6 +8,7 @@ public class ShipAttributes : MonoBehaviour {
 	//I thought it would have been a good idea to make the friendly and enemy ships inherit from this class but I chose this way since I'm not too acquainted with how inheritance works.
 
 	public GameObject deathExplosion;
+	public AudioClip deathExplosionSound;
 	public float deathExplosionDuration;
 
 	[HideInInspector]
@@ -20,14 +21,27 @@ public class ShipAttributes : MonoBehaviour {
 	public float reloadTime;
 
 	private SpriteRenderer myRenderer;
+	private AudioSource source;
+	private BoxCollider2D col;
+	private CircleCollider2D rad;
 
 	void Awake(){
 		myRenderer = GetComponent<SpriteRenderer> ();
+		source = GetComponent<AudioSource> ();
+		col = GetComponent<BoxCollider2D> ();
+		rad = GetComponentInChildren<CircleCollider2D> ();
 	}
 
 	IEnumerator DeathSequence(){
 		isDying = true;
 		myRenderer.enabled = false;
+		col.enabled = false;
+
+		if (rad) { //Needed to add this separate condition because the fishing boat doesn't have an attack radius
+			rad.enabled = false;
+		}
+
+		source.PlayOneShot (deathExplosionSound);
 		Instantiate (deathExplosion, transform.position, Quaternion.identity);
 		yield return new WaitForSeconds (deathExplosionDuration);
 		Destroy (this.gameObject);
