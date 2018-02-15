@@ -5,22 +5,29 @@ using UnityEngine.UI;
 
 public class PropertiesDisplay : MonoBehaviour {
 
-	private ShipAttributes myShip;
+	private Ship myShip;
+	private AttackBar attackBar;
 
 	public Text damage;
 	public Text accuracy;
 	public Text reload;
 
 	void Awake(){
-		myShip = GetComponentInParent<ShipAttributes> ();
-		UpdateText ();
+		if (GetComponentInParent<Ship> ()) {
+			myShip = GetComponentInParent<Ship> ();
+		}
+		if (GetComponentInChildren<AttackBar> ()) {
+			attackBar = GetComponentInChildren<AttackBar> ();
+		}
 
 	}
 
-	void UpdateText(){ //Turn the values of damage, accuracy, and speed to text and display them below the selected ship.
-		damage.text = myShip.damage.ToString ();
-		accuracy.text = myShip.accuracy.ToString ();
-		reload.text = myShip.speed.ToString ();
+	void Update(){
+		if (myShip && myShip.isAttacking) {
+			attackBar.GetComponent<Image> ().enabled = true;
+		} else if (attackBar && myShip && myShip.isAttacking == false){
+			attackBar.GetComponent<Image> ().enabled = false;
+		}
 	}
 
 }

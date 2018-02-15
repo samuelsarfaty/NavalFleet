@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1520641650961886
 GameObject:
   m_ObjectHideFlags: 1
@@ -535,9 +535,8 @@ MonoBehaviour:
   health: 20
   speed: 0.4
   damage: 2
-  accuracy: 0.8
+  accuracy: 1
   reloadTime: 1
-  myRenderer: {fileID: 212162424371022356}
 --- !u!114 &114522270287071194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -712,6 +711,7 @@ MonoBehaviour:
   attributes: {fileID: 114414268926537476}
   selected: 0
   cannonSound: {fileID: 8300000, guid: cc461c1114a67944e9935f35bce5212f, type: 3}
+  attackBar: {fileID: 114368069129119370}
 --- !u!114 &114743964577611950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4394,7 +4394,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.76, y: 0.000000029802}
+  m_AnchoredPosition: {x: 1.7432227, y: 0.000000029802}
   m_SizeDelta: {x: 19.266, y: 1510.349}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224869958966307212

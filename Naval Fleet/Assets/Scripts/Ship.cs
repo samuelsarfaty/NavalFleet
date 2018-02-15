@@ -14,6 +14,7 @@ public class Ship : MonoBehaviour {
 	public bool selected;
 	public AudioClip cannonSound;
 	public Coroutine lastRoutine;
+	public AttackBar attackBar;
 
 	private GameObject propertiesCanvas;
 	private GameObject shootingEffect;
@@ -38,7 +39,7 @@ public class Ship : MonoBehaviour {
 
 	void Update () {
 		if (isAttacking && canShoot) {
-			StartCoroutine (FightSequence ());
+			//StartCoroutine (FightSequence ());
 		}
 
 		if (attributes.health <= 0 && attributes.isDying == false) {
@@ -53,10 +54,21 @@ public class Ship : MonoBehaviour {
 		for (int i = 0; i < ships.Length; i++) {
 			if (ships [i] == this) {
 				SelectShip ();
+
+				if (isAttacking) {
+					attributes.damage = attackBar.bar.fillAmount * 10;
+					Attack ();
+
+				}
+
 			} else {
 				ships [i].DeSelectShip ();
 			}
 		}
+	}
+
+	void OnMouseUp(){
+		shootingEffect.gameObject.SetActive (false);
 	}
 
 	public void SelectShip(){ //This function includes all the actions to take when a ship is selected.
@@ -104,13 +116,13 @@ public class Ship : MonoBehaviour {
 		}
 	}
 
-	IEnumerator FightSequence(){ // Calls the attack function once, then disables the ability to attack again until reload time is complete.
+	/*IEnumerator FightSequence(){ // Calls the attack function once, then disables the ability to attack again until reload time is complete.
 		Attack ();
 		canShoot = false;
 		yield return new WaitForSeconds (attributes.reloadTime);
 		shootingEffect.gameObject.SetActive (false);
 		canShoot = true;
-	}
+	}*/
 
 	void Attack(){ //Generate a random value from 0-1. If the number is lower than accuracy, ship hits enemy. Otherwise wait for reload and try agian.
 		shootingEffect.gameObject.SetActive(true);

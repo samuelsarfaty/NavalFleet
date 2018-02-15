@@ -8,7 +8,7 @@ public class AttackBar : MonoBehaviour {
 	public float speed;
 	public bool increasing = true;
 
-	private Image bar;
+	public Image bar;
 
 	void Awake(){
 		bar = GetComponent<Image> ();
@@ -19,7 +19,6 @@ public class AttackBar : MonoBehaviour {
 		if (bar.fillAmount <= 0) {
 			increasing = true;
 		} else if (bar.fillAmount >= 1) {
-			print ("filled");
 			increasing = false;
 		}
 
