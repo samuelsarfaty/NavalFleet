@@ -21,12 +21,20 @@ public class ShipAttributes : MonoBehaviour {
 	public float reloadTime;
 
 	private SpriteRenderer myRenderer;
+	private GameObject propertiesCanvas;
 	private AudioSource source;
 	private BoxCollider2D col;
 	private CircleCollider2D rad;
 
 	void Awake(){
-		myRenderer = GetComponent<SpriteRenderer> ();
+		if (GetComponent<SpriteRenderer> ()) {
+			myRenderer = GetComponent<SpriteRenderer> ();
+		} else {
+			myRenderer = GetComponentInChildren<SpriteRenderer> ();
+		}
+
+		propertiesCanvas = transform.GetChild(0).gameObject;
+
 		source = GetComponent<AudioSource> ();
 		col = GetComponent<BoxCollider2D> ();
 		rad = GetComponentInChildren<CircleCollider2D> ();
@@ -36,6 +44,7 @@ public class ShipAttributes : MonoBehaviour {
 		isDying = true;
 		myRenderer.enabled = false;
 		col.enabled = false;
+		propertiesCanvas.SetActive (false);
 
 		if (rad) { //Needed to add this separate condition because the fishing boat doesn't have an attack radius
 			rad.enabled = false;

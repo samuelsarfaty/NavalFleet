@@ -51,7 +51,7 @@ public class Ship : MonoBehaviour {
 		// Find all the ships and iterate through them. If it finds this ship, select it and deselect all others.
 		Ship[] ships = GameObject.FindObjectsOfType<Ship> ();
 		for (int i = 0; i < ships.Length; i++) {
-			if (ships [i] == this && ships[i].selected == false) {
+			if (ships [i] == this) {
 				SelectShip ();
 			} else {
 				ships [i].DeSelectShip ();
