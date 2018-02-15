@@ -28,7 +28,9 @@ public class Ship : MonoBehaviour {
 		propertiesCanvas = transform.GetChild (0).gameObject; 
 		shootingEffect = transform.GetChild(1).gameObject;
 
-		reloader.gameObject.SetActive (false);
+		if (reloader) {
+			reloader.gameObject.SetActive (false);
+		}
 
 		attributes = GetComponent<ShipAttributes>();
 		source = GetComponent<AudioSource>();
@@ -46,6 +48,7 @@ public class Ship : MonoBehaviour {
 		}
 
 		if (attributes.health <= 0 && attributes.isDying == false) {
+			StopCoroutine (Reload ());
 			attributes.Die ();
 		}
 			
@@ -54,16 +57,24 @@ public class Ship : MonoBehaviour {
 	void OnMouseDown(){
 		// Find all the ships and iterate through them. If it finds this ship, select it and deselect all others.
 		Ship[] ships = GameObject.FindObjectsOfType<Ship> ();
+
+		if (isAttacking && canShoot && selected) {
+			attributes.damage = attackBar.bar.fillAmount * 10;
+			Attack ();
+			StartCoroutine (Reload ());
+
+		}
+
 		for (int i = 0; i < ships.Length; i++) {
 			if (ships [i] == this) {
 				SelectShip ();
 
-				if (isAttacking && canShoot) {
+				/*if (isAttacking && canShoot && selected) {
 					attributes.damage = attackBar.bar.fillAmount * 10;
 					Attack ();
 					StartCoroutine (Reload ());
 
-				}
+				}*/
 
 			} else {
 				ships [i].DeSelectShip ();

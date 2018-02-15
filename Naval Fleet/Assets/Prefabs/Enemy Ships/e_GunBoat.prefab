@@ -353,7 +353,7 @@ MonoBehaviour:
   health: 20
   speed: 0.3
   damage: 2
-  accuracy: 0.6
+  accuracy: 1
   reloadTime: 1
 --- !u!114 &114457146486420616
 MonoBehaviour:
