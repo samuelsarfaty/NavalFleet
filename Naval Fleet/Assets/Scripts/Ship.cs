@@ -15,6 +15,7 @@ public class Ship : MonoBehaviour {
 	public AudioClip cannonSound;
 	public Coroutine lastRoutine;
 	public AttackBar attackBar;
+	public Reloader reloader;
 
 	private GameObject propertiesCanvas;
 	private GameObject shootingEffect;
@@ -26,6 +27,8 @@ public class Ship : MonoBehaviour {
 	void Awake(){
 		propertiesCanvas = transform.GetChild (0).gameObject; 
 		shootingEffect = transform.GetChild(1).gameObject;
+
+		reloader.gameObject.SetActive (false);
 
 		attributes = GetComponent<ShipAttributes>();
 		source = GetComponent<AudioSource>();
@@ -55,9 +58,10 @@ public class Ship : MonoBehaviour {
 			if (ships [i] == this) {
 				SelectShip ();
 
-				if (isAttacking) {
+				if (isAttacking && canShoot) {
 					attributes.damage = attackBar.bar.fillAmount * 10;
 					Attack ();
+					StartCoroutine (Reload ());
 
 				}
 
@@ -132,6 +136,14 @@ public class Ship : MonoBehaviour {
 		if (hitChance <= attributes.accuracy) {
 			engagedEnemy.attributes.health -= attributes.damage;
 		}
+	}
+
+	IEnumerator Reload(){
+		canShoot = false;
+		reloader.gameObject.SetActive (true);
+		yield return new WaitForSeconds (attributes.reloadTime);
+		canShoot = true;
+		reloader.gameObject.SetActive (false);
 	}
 		
 }
