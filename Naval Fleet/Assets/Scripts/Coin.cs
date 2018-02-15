@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public float factor;
+
+	private SelfDestruct sd;
+	private float startTime;
+
+	void Awake(){
+		sd = GetComponent <SelfDestruct> ();
+		startTime = Time.time;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		transform.RotateAround (transform.position, Vector3.up, 5);
+		float remainingTime = sd.secondsToKill - (Time.time - startTime);
+		transform.RotateAround (transform.position, Vector3.up, remainingTime * factor);
 	}
 }

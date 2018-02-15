@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour {
 
+	[HideInInspector]
+	public float startHealth;
+
 	private ShipAttributes myShip;
 	private Image healthBar;
-	private float startHealth;
+
 
 	//This script gets the parent's health and displays it on the bar filling.
 

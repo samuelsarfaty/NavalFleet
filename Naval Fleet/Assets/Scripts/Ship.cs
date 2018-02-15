@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ship : MonoBehaviour {
 
@@ -43,6 +44,7 @@ public class Ship : MonoBehaviour {
 		if (attributes.health <= 0 && attributes.isDying == false) {
 			attributes.Die ();
 		}
+			
 	}
 
 	void OnMouseDown(){
