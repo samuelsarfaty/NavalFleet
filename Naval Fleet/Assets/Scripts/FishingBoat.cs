@@ -6,12 +6,15 @@ public class FishingBoat : MonoBehaviour {
 
 	public int amountToGive;
 	public float rate;
+
 	public GameObject coinEffect;
 	public GameObject coinText;
 
+
+
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating ("IncreaseMoney", rate, rate);
+		//InvokeRepeating ("IncreaseMoney", rate, rate);
 	}
 
 	void IncreaseMoney(){
@@ -27,6 +30,5 @@ public class FishingBoat : MonoBehaviour {
 			Destroy (other.gameObject);
 		}
 	}
-
 
 }
