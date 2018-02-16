@@ -399,9 +399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b52ce6e8883c041b484395d63273d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: {fileID: 114322222064599102}
-  accuracy: {fileID: 114650793086231512}
-  reload: {fileID: 114056471560013520}
 --- !u!114 &114322222064599102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -593,13 +590,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262be365473c8124cba12becd25ac6cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAttacking: 0
+  isEngaged: 0
   engagedEnemy: {fileID: 0}
   attributes: {fileID: 0}
   selected: 0
   cannonSound: {fileID: 8300000, guid: cc461c1114a67944e9935f35bce5212f, type: 3}
   attackBar: {fileID: 0}
   reloader: {fileID: 0}
+  attackStance: 0
 --- !u!114 &114743964577611950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -628,7 +626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountToGive: 25
-  rate: 40
+  rate: 2
   coinEffect: {fileID: 1155422060870382, guid: fcf13ee2489db884394c0d38f3e19e2b, type: 2}
   coinText: {fileID: 0}
 --- !u!114 &114869572327173638

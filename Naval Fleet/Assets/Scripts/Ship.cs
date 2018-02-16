@@ -40,12 +40,13 @@ public class Ship : MonoBehaviour {
 		source = GetComponent<AudioSource>();
 		anim = GetComponent<Animator> ();
 		healthBar = GetComponentInChildren <HealthBar> ();
+		propertiesCanvas.gameObject.SetActive (false);
 
 		SetAttackStance (true);
 	}
 		
 	void Start () {
-		propertiesCanvas.gameObject.SetActive (false);
+		
 		shootingEffect.gameObject.SetActive (false);
 	}
 
@@ -153,10 +154,8 @@ public class Ship : MonoBehaviour {
 		attackStance = stance;
 
 		if (attackStance) {
-			print ("attack");
 			healthBar.SetColor (Color.green);
 		} else {
-			print ("defend");
 			healthBar.SetColor (Color.blue);
 
 		}
