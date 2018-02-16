@@ -25,10 +25,13 @@ public class PropertiesDisplay : MonoBehaviour {
 	void Update(){
 		if (myShip && myShip.isEngaged && myShip.attackStance == true) {
 			attackBar.GetComponent<Image> ().enabled = true;
+			attackBar.transform.GetChild (0).gameObject.SetActive (true);
 		} else if (attackBar && myShip && myShip.isEngaged == false) {
 			attackBar.GetComponent<Image> ().enabled = false;
+			attackBar.transform.GetChild (0).gameObject.SetActive (false);
 		} else if (myShip && myShip.attackStance == false) {
 			attackBar.GetComponent<Image> ().enabled = false;
+			attackBar.transform.GetChild (0).gameObject.SetActive (false);
 		}
 	}
 

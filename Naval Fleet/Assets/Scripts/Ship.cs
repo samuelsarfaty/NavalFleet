@@ -67,12 +67,14 @@ public class Ship : MonoBehaviour {
 		// Find all the ships and iterate through them. If it finds this ship, select it and deselect all others.
 		Ship[] ships = GameObject.FindObjectsOfType<Ship> ();
 
-		if (isEngaged && canShoot && selected && attackStance == true) {//Checks: enemy on radius, not reloading, selected, and in attack mode
+		/*if (isEngaged && canShoot && selected && attackStance == true) {//Checks: enemy on radius, not reloading, selected, and in attack mode
 			attributes.damage = attackBar.bar.fillAmount * 10;
 			Attack ();
 			StartCoroutine (Reload ());
 
-		}
+		}*/
+
+		//Attack ();
 
 		for (int i = 0; i < ships.Length; i++) {
 			if (ships [i] == this) {
@@ -141,14 +143,25 @@ public class Ship : MonoBehaviour {
 		canShoot = true;
 	}*/
 
-	void Attack(){ //Generate a random value from 0-1. If the number is lower than accuracy, ship hits enemy. Otherwise wait for reload and try agian.
-		shootingEffect.gameObject.SetActive(true);
-		float hitChance = Random.value;
-		source.PlayOneShot (cannonSound);
+	public void Attack(){ //Generate a random value from 0-1. If the number is lower than accuracy, ship hits enemy. Otherwise wait for reload and try agian.
+		print ("attacking");
+		if (isEngaged && canShoot && selected && attackStance == true) {//Checks: enemy on radius, not reloading, selected, and in attack mode
 
-		if (hitChance <= attributes.accuracy) {
-			engagedEnemy.attributes.health -= attributes.damage;
+			attributes.damage = attackBar.bar.fillAmount * 10;
+
+			shootingEffect.gameObject.SetActive(true);
+			float hitChance = Random.value;
+			source.PlayOneShot (cannonSound);
+
+			if (hitChance <= attributes.accuracy) {
+				engagedEnemy.attributes.health -= attributes.damage;
+			}
+
+			StartCoroutine (Reload ());
+
 		}
+
+
 	}
 
 	public void SetAttackStance(bool stance){
@@ -168,6 +181,10 @@ public class Ship : MonoBehaviour {
 		yield return new WaitForSeconds (attributes.reloadTime);
 		canShoot = true;
 		reloader.gameObject.SetActive (false);
+	}
+
+	public void check(){
+		print ("check");
 	}
 		
 }
