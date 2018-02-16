@@ -597,7 +597,6 @@ MonoBehaviour:
   cannonSound: {fileID: 8300000, guid: cc461c1114a67944e9935f35bce5212f, type: 3}
   attackBar: {fileID: 0}
   reloader: {fileID: 0}
-  attackStance: 0
 --- !u!114 &114743964577611950
 MonoBehaviour:
   m_ObjectHideFlags: 1

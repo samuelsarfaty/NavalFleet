@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour {
 	public int startCoins;
 	public int targetCoins;
 
+	public Text startText;
+
+
 	private LevelManager levelManager;
 
 	void Awake(){
@@ -22,6 +25,8 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		coins = startCoins;
 		targetText.text = targetCoins.ToString ();
+		StartCoroutine (KillText (startText));
+
 	}
 	
 	// Update is called once per frame
@@ -31,4 +36,12 @@ public class GameManager : MonoBehaviour {
 			levelManager.LoadLevel ("Win");
 		}
 	}
+
+	IEnumerator KillText(Text text){
+		yield return new WaitForSeconds (3);
+		text.gameObject.SetActive (false);
+	}
+
 }
+
+		
