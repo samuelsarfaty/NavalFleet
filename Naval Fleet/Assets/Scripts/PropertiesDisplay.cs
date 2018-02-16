@@ -8,9 +8,9 @@ public class PropertiesDisplay : MonoBehaviour {
 	private Ship myShip;
 	private AttackBar attackBar;
 
-	public Text damage;
+	/*public Text damage;
 	public Text accuracy;
-	public Text reload;
+	public Text reload;*/
 
 	void Awake(){
 		if (GetComponentInParent<Ship> ()) {

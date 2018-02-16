@@ -19,10 +19,17 @@ public class HealthBar : MonoBehaviour {
 		healthBar = GetComponent<Image> ();
 		startHealth = myShip.health;
 	}
+
+	void Start(){
+	}
 		
 	
 	// Update is called once per frame
 	void Update () {
 		healthBar.fillAmount = myShip.health / startHealth;
+	}
+
+	public void SetColor(Color color){
+		healthBar.color = color;
 	}
 }

@@ -19,6 +19,7 @@ public class Ship : MonoBehaviour {
 
 	public bool attackStance;
 
+	private HealthBar healthBar;
 	private GameObject propertiesCanvas;
 	private GameObject shootingEffect;
 	private AudioSource source;
@@ -38,6 +39,7 @@ public class Ship : MonoBehaviour {
 		attributes = GetComponent<ShipAttributes>();
 		source = GetComponent<AudioSource>();
 		anim = GetComponent<Animator> ();
+		healthBar = GetComponentInChildren <HealthBar> ();
 
 		SetAttackStance (true);
 	}
@@ -151,9 +153,12 @@ public class Ship : MonoBehaviour {
 		attackStance = stance;
 
 		if (attackStance) {
-			print ("attack");	
+			print ("attack");
+			healthBar.SetColor (Color.green);
 		} else {
 			print ("defend");
+			healthBar.SetColor (Color.blue);
+
 		}
 	}
 
