@@ -23,9 +23,9 @@ public class PropertiesDisplay : MonoBehaviour {
 	}
 
 	void Update(){
-		if (myShip && myShip.isAttacking) {
+		if (myShip && myShip.isEngaged && myShip.attackStance == true) {
 			attackBar.GetComponent<Image> ().enabled = true;
-		} else if (attackBar && myShip && myShip.isAttacking == false){
+		} else if (attackBar && myShip && myShip.isEngaged == false){
 			attackBar.GetComponent<Image> ().enabled = false;
 		}
 	}

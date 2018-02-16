@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Ship : MonoBehaviour {
 
 	[HideInInspector]
-	public bool isAttacking = false;
+	public bool isEngaged = false;
 	[HideInInspector]
 	public Enemy engagedEnemy;
 	[HideInInspector]
@@ -17,11 +17,14 @@ public class Ship : MonoBehaviour {
 	public AttackBar attackBar;
 	public Reloader reloader;
 
+	public bool attackStance;
+
 	private GameObject propertiesCanvas;
 	private GameObject shootingEffect;
 	private AudioSource source;
 	private Animator anim;
 	private bool canShoot = true;
+
 
 
 	void Awake(){
@@ -35,6 +38,8 @@ public class Ship : MonoBehaviour {
 		attributes = GetComponent<ShipAttributes>();
 		source = GetComponent<AudioSource>();
 		anim = GetComponent<Animator> ();
+
+		SetAttackStance (true);
 	}
 		
 	void Start () {
@@ -43,7 +48,7 @@ public class Ship : MonoBehaviour {
 	}
 
 	void Update () {
-		if (isAttacking && canShoot) {
+		if (isEngaged && canShoot) {
 			//StartCoroutine (FightSequence ());
 		}
 
@@ -58,7 +63,7 @@ public class Ship : MonoBehaviour {
 		// Find all the ships and iterate through them. If it finds this ship, select it and deselect all others.
 		Ship[] ships = GameObject.FindObjectsOfType<Ship> ();
 
-		if (isAttacking && canShoot && selected) {
+		if (isEngaged && canShoot && selected && attackStance) {//Checks: enemy on radius, not reloading, selected, and in attack mode
 			attributes.damage = attackBar.bar.fillAmount * 10;
 			Attack ();
 			StartCoroutine (Reload ());
@@ -68,13 +73,6 @@ public class Ship : MonoBehaviour {
 		for (int i = 0; i < ships.Length; i++) {
 			if (ships [i] == this) {
 				SelectShip ();
-
-				/*if (isAttacking && canShoot && selected) {
-					attributes.damage = attackBar.bar.fillAmount * 10;
-					Attack ();
-					StartCoroutine (Reload ());
-
-				}*/
 
 			} else {
 				ships [i].DeSelectShip ();
@@ -112,7 +110,7 @@ public class Ship : MonoBehaviour {
 	}
 
 	IEnumerator MoveToPoint(Vector2 destination){
-		if (!isAttacking) {																		//Player only allowed to move if he is not engaged
+		if (!isEngaged) {																		//Player only allowed to move if he is not engaged
 			Vector2 currentPos = new Vector2 (transform.position.x, transform.position.y);		//Get the player's current position as Vector 2
 																						
 			Vector2 diff = destination - currentPos;											//This bit was taken from the Unity Forum.					
@@ -122,7 +120,7 @@ public class Ship : MonoBehaviour {
 
 			float step = (attributes.speed / (destination - currentPos).magnitude * Time.deltaTime);		//Calculate the value of each step by dividing speed by the difference between the current position and the target position
 			float t = 0;
-			while (t <= 1.0f && !isAttacking) {
+			while (t <= 1.0f && !isEngaged) {
 				t += step;																	//Increase the value of t by step on each pass. 
 				transform.position = Vector2.Lerp (currentPos, destination, t);				//Interpolate the ship's position by t.
 				yield return new WaitForEndOfFrame ();										//Wait for next frame and repeat until t = 1.
@@ -146,6 +144,16 @@ public class Ship : MonoBehaviour {
 
 		if (hitChance <= attributes.accuracy) {
 			engagedEnemy.attributes.health -= attributes.damage;
+		}
+	}
+
+	public void SetAttackStance(bool stance){
+		attackStance = stance;
+
+		if (attackStance) {
+			print ("attack");	
+		} else {
+			print ("defend");
 		}
 	}
 
