@@ -24,8 +24,15 @@ public class AttackBar : MonoBehaviour {
 
 		if (increasing) {
 			bar.fillAmount += speed * Time.deltaTime;
+			Color greenfill = bar.color;
+			greenfill.g -= speed * Time.deltaTime;	
+			bar.color = greenfill;
 		} else if (!increasing){
 			bar.fillAmount -= speed * Time.deltaTime;
+			Color greenfill = bar.color;
+			greenfill.g += speed * Time.deltaTime;
+			bar.color = greenfill;
+			bar.color = greenfill;
 		}
 			
 		}
