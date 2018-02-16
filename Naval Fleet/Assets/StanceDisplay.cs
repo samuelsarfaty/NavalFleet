@@ -16,12 +16,15 @@ public class StanceDisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (parentship.attackStance) {
+		if (parentship.attackStance == true) {
 			fightStance.gameObject.SetActive (true);
 			defendStance.gameObject.SetActive (false);
-		} else {
+		} else if (parentship.attackStance == false) {
 			fightStance.gameObject.SetActive (false);
 			defendStance.gameObject.SetActive (true);
+		} else if (parentship.attackStance == null) {
+			fightStance.gameObject.SetActive (false);
+			defendStance.gameObject.SetActive (false);
 		}
 	}
 }

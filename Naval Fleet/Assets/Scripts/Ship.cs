@@ -17,7 +17,7 @@ public class Ship : MonoBehaviour {
 	public AttackBar attackBar;
 	public Reloader reloader;
 
-	public bool attackStance;
+	public bool ? attackStance;
 
 	private HealthBar healthBar;
 	private GameObject propertiesCanvas;
@@ -57,6 +57,7 @@ public class Ship : MonoBehaviour {
 
 		if (attributes.health <= 0 && attributes.isDying == false) {
 			StopCoroutine (Reload ());
+			attackStance = null;
 			attributes.Die ();
 		}
 			
@@ -66,7 +67,7 @@ public class Ship : MonoBehaviour {
 		// Find all the ships and iterate through them. If it finds this ship, select it and deselect all others.
 		Ship[] ships = GameObject.FindObjectsOfType<Ship> ();
 
-		if (isEngaged && canShoot && selected && attackStance) {//Checks: enemy on radius, not reloading, selected, and in attack mode
+		if (isEngaged && canShoot && selected && attackStance == true) {//Checks: enemy on radius, not reloading, selected, and in attack mode
 			attributes.damage = attackBar.bar.fillAmount * 10;
 			Attack ();
 			StartCoroutine (Reload ());
@@ -153,7 +154,7 @@ public class Ship : MonoBehaviour {
 	public void SetAttackStance(bool stance){
 		attackStance = stance;
 
-		if (attackStance) {
+		if (attackStance == true) {
 			healthBar.SetColor (Color.green);
 		} else {
 			healthBar.SetColor (Color.blue);
