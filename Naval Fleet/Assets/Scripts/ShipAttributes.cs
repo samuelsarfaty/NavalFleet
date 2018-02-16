@@ -20,18 +20,18 @@ public class ShipAttributes : MonoBehaviour {
 	public float accuracy;
 	public float reloadTime;
 
-	private SpriteRenderer myRenderer;
+	public SpriteRenderer myRenderer;
 	private GameObject propertiesCanvas;
 	private AudioSource source;
 	private BoxCollider2D col;
 	private CircleCollider2D rad;
 
 	void Awake(){
-		if (GetComponent<SpriteRenderer> ()) {
+		/*if (GetComponent<SpriteRenderer> ()) {
 			myRenderer = GetComponent<SpriteRenderer> ();
 		} else {
 			myRenderer = GetComponentInChildren<SpriteRenderer> ();
-		}
+		}*/
 
 		propertiesCanvas = transform.GetChild(0).gameObject;
 
