@@ -12,12 +12,13 @@ public class GameManager : MonoBehaviour {
 	public int startCoins;
 	public int targetCoins;
 	public GameObject enemyPrefab;
-	public Transform firstEnemySpawnPos;
+
+	public Transform EnemySpawnPos_0;
 
 	public Text startText;
 	public Text buyText;
 
-
+	private EnemySpawner enemySpawner;
 	private LevelManager levelManager;
 	private Animator anim;
 	private bool firstCoinsTaken = false;
@@ -26,6 +27,9 @@ public class GameManager : MonoBehaviour {
 		levelManager = GameObject.FindObjectOfType<LevelManager> ();
 		anim = GetComponent<Animator> ();
 		buyText.gameObject.SetActive (false);
+		enemySpawner = GameObject.FindObjectOfType<EnemySpawner> ();
+
+		enemySpawner.GetComponent<EnemySpawner> ().enabled = false;
 	}
 
 	// Use this for initialization
@@ -47,9 +51,10 @@ public class GameManager : MonoBehaviour {
 			buyText.gameObject.SetActive (true);
 			StartCoroutine (KillText (buyText, 1.7f));
 			print ("first enemy");
-			SpawnEnemy (firstEnemySpawnPos);
+			SpawnEnemy (EnemySpawnPos_0);
 			firstCoinsTaken = true;
 			anim.SetTrigger ("ShowEnemy");
+			enemySpawner.GetComponent<EnemySpawner> ().enabled = true;
 
 		}
 

@@ -9,12 +9,9 @@ public class EnemySpawner : MonoBehaviour {
 	public float spawnRate;
 	public float range;
 
-
-
-	void Start(){
+	void OnEnable(){
 		InvokeRepeating ("SpawnEnemy", delayStart, spawnRate);
 	}
-
 
 	void SpawnEnemy(){ //This function spawns enemies around the player
 		float angle = Random.Range (0.0f, Mathf.PI * 2);
@@ -23,6 +20,8 @@ public class EnemySpawner : MonoBehaviour {
 
 		Instantiate (enemyPrefab, v * range, Quaternion.identity);
 	}
+
+
 
 
 }

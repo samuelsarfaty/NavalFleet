@@ -46,13 +46,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1424311149863606}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0714246edfb4dea40b7d1d4517714ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1423485495756804, guid: 4b92f190e18d76a4089b4cb7e90ee4c4,
     type: 2}
-  delayStart: 10
+  delayStart: 15
   spawnRate: 15
-  range: 15
+  range: 10

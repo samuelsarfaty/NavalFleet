@@ -30,6 +30,6 @@ public class HealthBar : MonoBehaviour {
 	}
 
 	public void SetColor(Color color){
-		healthBar.color = color;
+			healthBar.color = color;
 	}
 }
