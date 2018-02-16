@@ -6,6 +6,8 @@ public class AttackRadius : MonoBehaviour {
 
 	private Ship parentShip;
 
+	public GameObject coinEffect;
+
 	void Awake(){
 		parentShip = transform.GetComponentInParent<Ship> ();
 	}
@@ -32,6 +34,8 @@ public class AttackRadius : MonoBehaviour {
 			parentShip.isEngaged = false;
 			parentShip.transform.Rotate (Vector3.forward * 1); 	//Call rotation on ship so that OnTriggerEnter is called again.
 																//This works in case there is more than 1 enemy on the player radius.
+			GameManager.coins += 50;
+			Instantiate (coinEffect, transform.position, Quaternion.identity);
 
 		}
 	}

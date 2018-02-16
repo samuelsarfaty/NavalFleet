@@ -93,7 +93,7 @@ public class Enemy : MonoBehaviour {
 			if (engagedShip.attackStance == true) {
 				engagedShip.attributes.health -= attributes.damage;
 			} else {
-				engagedShip.attributes.health -= attributes.damage * 0.5f;
+				engagedShip.attributes.health -= attributes.damage * 0.3f;
 			}
 		}
 	}

@@ -23,9 +23,7 @@ public class FishingBoat : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		print ("found something");
 		if (other.GetComponent<Coin> ()) {
-				print("found coin");
 			IncreaseMoney ();
 			Destroy (other.gameObject);
 		}

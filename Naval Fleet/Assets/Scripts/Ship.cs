@@ -42,7 +42,7 @@ public class Ship : MonoBehaviour {
 		healthBar = GetComponentInChildren <HealthBar> ();
 		propertiesCanvas.gameObject.SetActive (false);
 
-		SetAttackStance (true);
+		//SetAttackStance (true);
 	}
 		
 	void Start () {
@@ -51,8 +51,9 @@ public class Ship : MonoBehaviour {
 	}
 
 	void Update () {
-		if (isEngaged && canShoot) {
+		if (isEngaged) {
 			//StartCoroutine (FightSequence ());
+			propertiesCanvas.SetActive(true);
 		}
 
 		if (attributes.health <= 0 && attributes.isDying == false) {
@@ -145,7 +146,7 @@ public class Ship : MonoBehaviour {
 
 	public void Attack(){ //Generate a random value from 0-1. If the number is lower than accuracy, ship hits enemy. Otherwise wait for reload and try agian.
 		print ("attacking");
-		if (isEngaged && canShoot && selected && attackStance == true) {//Checks: enemy on radius, not reloading, selected, and in attack mode
+		if (isEngaged && canShoot && attackStance == true) {//Checks: enemy on radius, not reloading, selected, and in attack mode
 
 			attributes.damage = attackBar.bar.fillAmount * 10;
 
@@ -158,7 +159,6 @@ public class Ship : MonoBehaviour {
 			}
 
 			StartCoroutine (Reload ());
-
 		}
 
 
@@ -180,6 +180,7 @@ public class Ship : MonoBehaviour {
 		reloader.gameObject.SetActive (true);
 		yield return new WaitForSeconds (attributes.reloadTime);
 		canShoot = true;
+		shootingEffect.SetActive (false);
 		reloader.gameObject.SetActive (false);
 	}
 

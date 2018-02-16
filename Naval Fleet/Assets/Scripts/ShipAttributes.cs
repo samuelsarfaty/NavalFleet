@@ -44,8 +44,8 @@ public class ShipAttributes : MonoBehaviour {
 		isDying = true;
 		myRenderer.enabled = false;
 		col.enabled = false;
-		//propertiesCanvas.SetActive (false);
-		Destroy(propertiesCanvas.gameObject);
+		propertiesCanvas.SetActive (false);
+		//Destroy(propertiesCanvas.gameObject);
 
 		if (rad) { //Needed to add this separate condition because the fishing boat doesn't have an attack radius
 			rad.enabled = false;
