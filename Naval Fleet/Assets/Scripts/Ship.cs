@@ -95,14 +95,18 @@ public class Ship : MonoBehaviour {
 	public void SelectShip(){ //This function includes all the actions to take when a ship is selected.
 		selected = true;
 		anim.SetBool ("Selected", true);
-		propertiesCanvas.gameObject.SetActive (true);
+		if (propertiesCanvas.activeSelf == false) {
+			propertiesCanvas.gameObject.SetActive (true);
+		}
 
 	}
 
 	public void DeSelectShip(){ //This function does the opposite of SelectShip.
 		selected = false;
 		anim.SetBool ("Selected", false);
-		propertiesCanvas.gameObject.SetActive (false);
+		if (!isEngaged) {
+			propertiesCanvas.gameObject.SetActive (false);
+		}
 	}
 
 	public void Move(Vector2 destination){ //Use this helper function as the MoveToPoint coroutine cannot be called from outside of this script. Set lastRoutine and start moving towards position.

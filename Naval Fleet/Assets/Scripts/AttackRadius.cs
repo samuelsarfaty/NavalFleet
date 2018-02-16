@@ -41,6 +41,9 @@ public class AttackRadius : MonoBehaviour {
 				other.GetComponent<Enemy> ().gaveMoney = true;
 				GameManager.coins += 50;
 				Instantiate (coinEffect, transform.position, Quaternion.identity);
+				if (parentShip.selected == false) {
+					parentShip.DeSelectShip ();
+				}
 			}
 
 		}
