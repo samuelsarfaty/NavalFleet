@@ -90,7 +90,11 @@ public class Enemy : MonoBehaviour {
 		source.PlayOneShot (cannonSound);
 
 		if (Random.value <= attributes.accuracy) {
-			engagedShip.attributes.health -= attributes.damage;
+			if (engagedShip.attackStance == true) {
+				engagedShip.attributes.health -= attributes.damage;
+			} else {
+				engagedShip.attributes.health -= attributes.damage * 0.5f;
+			}
 		}
 	}
 
