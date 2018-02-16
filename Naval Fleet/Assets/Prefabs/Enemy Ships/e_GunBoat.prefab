@@ -355,6 +355,7 @@ MonoBehaviour:
   damage: 2
   accuracy: 1
   reloadTime: 1
+  myRenderer: {fileID: 212757041026566232}
 --- !u!114 &114457146486420616
 MonoBehaviour:
   m_ObjectHideFlags: 1
