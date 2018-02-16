@@ -12,6 +12,7 @@ public class Ship : MonoBehaviour {
 	[HideInInspector]
 	public ShipAttributes attributes;
 	public bool selected;
+	public bool gaveMoney = false;
 	public AudioClip cannonSound;
 	public Coroutine lastRoutine;
 	public AttackBar attackBar;

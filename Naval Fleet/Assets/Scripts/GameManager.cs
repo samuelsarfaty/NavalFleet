@@ -58,6 +58,10 @@ public class GameManager : MonoBehaviour {
 
 		}
 
+		if (coins <= 0) {
+			coins = 0;
+		}
+
 
 	}
 

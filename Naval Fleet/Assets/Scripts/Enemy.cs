@@ -11,9 +11,10 @@ public class Enemy : MonoBehaviour {
 	[HideInInspector]
 	public ShipAttributes attributes;
 	public AudioClip cannonSound;
+	public Vector2 target;
+	public bool gaveMoney = false;
 
 	private Mothership mothership;
-	public Vector2 target;
 	private GameObject shootingEffect;
 	private AudioSource source;
 	private bool canShoot = true;
