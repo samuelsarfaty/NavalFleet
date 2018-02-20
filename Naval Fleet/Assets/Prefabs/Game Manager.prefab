@@ -118,7 +118,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1844023858241214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.36, y: 0, z: 0}
+  m_LocalPosition: {x: -16.97, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4431210813284054}
@@ -290,7 +290,7 @@ MonoBehaviour:
   targetText: {fileID: 0}
   startCoins: 50
   targetCoins: 1000
-  delayEnemyStart: 10
+  delayEnemyStart: 15
   enemyPrefab: {fileID: 1423485495756804, guid: 4b92f190e18d76a4089b4cb7e90ee4c4,
     type: 2}
   EnemySpawnPos_0: {fileID: 4650101664948670}
@@ -430,6 +430,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.28, y: -3.25}
+  m_AnchoredPosition: {x: -9.51, y: -3.55}
   m_SizeDelta: {x: 203.811, y: 86.804}
   m_Pivot: {x: 0.5, y: 0.5}

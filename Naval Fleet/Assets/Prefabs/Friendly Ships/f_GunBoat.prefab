@@ -1084,8 +1084,10 @@ MonoBehaviour:
   gaveMoney: 0
   cannonSound: {fileID: 8300000, guid: cc461c1114a67944e9935f35bce5212f, type: 3}
   repairSound: {fileID: 8300000, guid: f5ce46d7714dc7a40ae3bc0855a95c40, type: 3}
+  attackHorn: {fileID: 8300000, guid: 3582929389c13764395324de8b213d45, type: 3}
   attackBar: {fileID: 114368069129119370}
   reloader: {fileID: 114747294867120232}
+  source: {fileID: 0}
 --- !u!114 &114743964577611950
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -15,16 +15,19 @@ public class Ship : MonoBehaviour {
 	public bool gaveMoney = false;
 	public AudioClip cannonSound;
 	public AudioClip repairSound;
+	public AudioClip attackHorn;
 	public Coroutine lastRoutine;
 	public AttackBar attackBar;
 	public Reloader reloader;
+
+	[HideInInspector]
+	public  AudioSource source;
 
 	public bool ? attackStance;
 
 	private HealthBar healthBar;
 	private GameObject propertiesCanvas;
 	private GameObject shootingEffect;
-	private AudioSource source;
 	private Animator anim;
 	private bool canShoot = true;
 
@@ -166,7 +169,7 @@ public class Ship : MonoBehaviour {
 	}*/
 
 	public void Attack(){ //Generate a random value from 0-1. If the number is lower than accuracy, ship hits enemy. Otherwise wait for reload and try agian.
-		print ("attacking");
+		//print ("attacking");
 		if (isEngaged && canShoot && attackStance == true) {//Checks: enemy on radius, not reloading, selected, and in attack mode
 
 			attributes.damage = attackBar.bar.fillAmount * 10;

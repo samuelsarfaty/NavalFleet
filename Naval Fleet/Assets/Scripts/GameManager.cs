@@ -50,8 +50,8 @@ public class GameManager : MonoBehaviour {
 
 		if (coins == 100 && !firstCoinsTaken) {
 			buyText.gameObject.SetActive (true);
-			StartCoroutine (KillText (buyText, 1.7f));
-			print ("first enemy");
+			StartCoroutine (KillText (buyText, 2.2f));
+			//print ("first enemy");
 			SpawnEnemy (EnemySpawnPos_0);
 			firstCoinsTaken = true;
 			anim.SetTrigger ("ShowEnemy");
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void EnableSpawner(){
-		enemyPrefab.GetComponent<EnemySpawner> ().enabled = true;
+		enemySpawner.GetComponent<EnemySpawner> ().enabled = true;
 	}
 }
 

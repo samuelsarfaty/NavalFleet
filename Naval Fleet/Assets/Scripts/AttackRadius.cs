@@ -17,6 +17,11 @@ public class AttackRadius : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){ //On trigger, set an engaged enemy for the player and turn on isAttacking to call the fight sequence.
 		if (other.GetComponent<Enemy> ()) {
 			parentShip.engagedEnemy = other.GetComponent<Enemy>();
+
+			if (parentShip.attackHorn) {
+				parentShip.source.PlayOneShot (parentShip.attackHorn);
+			}
+
 			parentShip.RotateShot ();
 			parentShip.isEngaged = true;
 		}
