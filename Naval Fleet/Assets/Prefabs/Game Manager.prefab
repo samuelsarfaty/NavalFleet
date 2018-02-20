@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4650101664948670}
   m_Layer: 0
-  m_Name: 1st enemy spawn pos
+  m_Name: enemy spawn pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1844023858241214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.02, y: 0, z: 0}
+  m_LocalPosition: {x: 13.36, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4431210813284054}
@@ -290,9 +290,10 @@ MonoBehaviour:
   targetText: {fileID: 0}
   startCoins: 50
   targetCoins: 1000
+  delayEnemyStart: 10
   enemyPrefab: {fileID: 1423485495756804, guid: 4b92f190e18d76a4089b4cb7e90ee4c4,
     type: 2}
-  firstEnemySpawnPos: {fileID: 4650101664948670}
+  EnemySpawnPos_0: {fileID: 4650101664948670}
   startText: {fileID: 114946304298615274}
   buyText: {fileID: 114383146159264056}
 --- !u!114 &114935937441880796

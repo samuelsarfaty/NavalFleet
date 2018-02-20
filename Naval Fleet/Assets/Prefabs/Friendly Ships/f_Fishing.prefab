@@ -319,6 +319,8 @@ MonoBehaviour:
   accuracy: 0
   reloadTime: 0
   myRenderer: {fileID: 212102534861749390}
+  healthPickup: {fileID: 1685781264728424, guid: 3378e8dd305e79a4ba5d04b624eba7b6,
+    type: 2}
 --- !u!114 &114527478997053692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -421,7 +423,9 @@ MonoBehaviour:
   engagedEnemy: {fileID: 0}
   attributes: {fileID: 0}
   selected: 0
+  gaveMoney: 0
   cannonSound: {fileID: 8300000, guid: cc461c1114a67944e9935f35bce5212f, type: 3}
+  repairSound: {fileID: 8300000, guid: f5ce46d7714dc7a40ae3bc0855a95c40, type: 3}
   attackBar: {fileID: 0}
   reloader: {fileID: 0}
 --- !u!114 &114743964577611950
@@ -452,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountToGive: 50
-  rate: 2
+  rate: 40
   coinEffect: {fileID: 1155422060870382, guid: fcf13ee2489db884394c0d38f3e19e2b, type: 2}
   coinText: {fileID: 0}
 --- !u!114 &114869572327173638

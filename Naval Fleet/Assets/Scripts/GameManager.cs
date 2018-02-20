@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
 	public static int coins;
 	public int startCoins;
 	public int targetCoins;
+	public float delayEnemyStart;
 	public GameObject enemyPrefab;
 
 	public Transform EnemySpawnPos_0;
@@ -54,7 +55,7 @@ public class GameManager : MonoBehaviour {
 			SpawnEnemy (EnemySpawnPos_0);
 			firstCoinsTaken = true;
 			anim.SetTrigger ("ShowEnemy");
-			enemySpawner.GetComponent<EnemySpawner> ().enabled = true;
+			Invoke ("EnableSpawner", delayEnemyStart); 
 
 		}
 
@@ -72,6 +73,10 @@ public class GameManager : MonoBehaviour {
 
 	void SpawnEnemy(Transform posToSpawn){
 		Instantiate (enemyPrefab, posToSpawn.transform.position, Quaternion.identity);
+	}
+
+	void EnableSpawner(){
+		enemyPrefab.GetComponent<EnemySpawner> ().enabled = true;
 	}
 }
 

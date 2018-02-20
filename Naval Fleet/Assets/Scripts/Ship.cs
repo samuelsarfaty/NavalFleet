@@ -14,6 +14,7 @@ public class Ship : MonoBehaviour {
 	public bool selected;
 	public bool gaveMoney = false;
 	public AudioClip cannonSound;
+	public AudioClip repairSound;
 	public Coroutine lastRoutine;
 	public AttackBar attackBar;
 	public Reloader reloader;
@@ -99,6 +100,12 @@ public class Ship : MonoBehaviour {
 
 	void OnMouseUp(){
 		shootingEffect.gameObject.SetActive (false);
+	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.GetComponent<RepairTool> ()) {
+			source.PlayOneShot (repairSound);
+		}
 	}
 
 	public void SelectShip(){ //This function includes all the actions to take when a ship is selected.
