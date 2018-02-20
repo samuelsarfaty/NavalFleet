@@ -176,7 +176,7 @@ MonoBehaviour:
   enemyCount: 2
   spawnWait: 5
   startWait: 1
-  waveWait: 20
+  waveWait: 10
   spawnPositions:
   - {fileID: 114879354259378728}
   - {fileID: 114535068461098346}
