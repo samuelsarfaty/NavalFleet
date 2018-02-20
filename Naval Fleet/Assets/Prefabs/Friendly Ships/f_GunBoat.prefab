@@ -740,6 +740,8 @@ MonoBehaviour:
   accuracy: 1
   reloadTime: 1.5
   myRenderer: {fileID: 212162424371022356}
+  healthPickup: {fileID: 1685781264728424, guid: 3378e8dd305e79a4ba5d04b624eba7b6,
+    type: 2}
 --- !u!114 &114517236677761938
 MonoBehaviour:
   m_ObjectHideFlags: 1

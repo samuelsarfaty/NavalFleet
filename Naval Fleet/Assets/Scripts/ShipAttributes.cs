@@ -19,8 +19,9 @@ public class ShipAttributes : MonoBehaviour {
 	public float damage;
 	public float accuracy;
 	public float reloadTime;
-
 	public SpriteRenderer myRenderer;
+	public GameObject healthPickup;
+
 	private GameObject propertiesCanvas;
 	private AudioSource source;
 	private BoxCollider2D col;
@@ -53,6 +54,11 @@ public class ShipAttributes : MonoBehaviour {
 
 		source.PlayOneShot (deathExplosionSound);
 		Instantiate (deathExplosion, transform.position, Quaternion.identity);
+
+		if (healthPickup) {
+			Instantiate (healthPickup, transform.position, Quaternion.identity);
+		}
+
 		yield return new WaitForSeconds (deathExplosionDuration);
 		Destroy (this.gameObject);
 
