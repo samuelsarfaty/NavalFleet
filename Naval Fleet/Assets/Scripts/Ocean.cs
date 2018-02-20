@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Ocean : MonoBehaviour {
 
+	public GameObject x;
+
 	void OnMouseDown(){
 		//Get the position of the click and change it to world coordinates.
 		Vector2 mousePos = Input.mousePosition;
@@ -16,6 +18,7 @@ public class Ocean : MonoBehaviour {
 					ships [i].StopMove (ships [i].lastRoutine);
 				}
 				ships [i].Move (mousePos);
+				Instantiate (x, mousePos, Quaternion.identity);
 				return;												//The execution of the function stops if a ship was moved, otherwise, it continues.
 			}
 		}

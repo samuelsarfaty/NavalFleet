@@ -289,7 +289,7 @@ MonoBehaviour:
   moneyText: {fileID: 0}
   targetText: {fileID: 0}
   startCoins: 50
-  targetCoins: 1000
+  targetCoins: 800
   delayEnemyStart: 15
   enemyPrefab: {fileID: 1423485495756804, guid: 4b92f190e18d76a4089b4cb7e90ee4c4,
     type: 2}

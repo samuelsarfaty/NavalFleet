@@ -714,7 +714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4985e9244dd79254fab5b34892203cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 2.5
   increasing: 1
   bar: {fileID: 0}
 --- !u!114 &114414268926537476
@@ -734,11 +734,11 @@ MonoBehaviour:
   deathExplosionDuration: 4
   isDying: 0
   price: 100
-  health: 20
+  health: 17
   speed: 0.7
   damage: 0
   accuracy: 1
-  reloadTime: 1.5
+  reloadTime: 1.3
   myRenderer: {fileID: 212162424371022356}
   healthPickup: {fileID: 1685781264728424, guid: 3378e8dd305e79a4ba5d04b624eba7b6,
     type: 2}

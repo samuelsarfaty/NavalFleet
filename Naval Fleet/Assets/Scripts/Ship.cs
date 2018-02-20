@@ -160,14 +160,6 @@ public class Ship : MonoBehaviour {
 		}
 	}
 
-	/*IEnumerator FightSequence(){ // Calls the attack function once, then disables the ability to attack again until reload time is complete.
-		Attack ();
-		canShoot = false;
-		yield return new WaitForSeconds (attributes.reloadTime);
-		shootingEffect.gameObject.SetActive (false);
-		canShoot = true;
-	}*/
-
 	public void Attack(){ //Generate a random value from 0-1. If the number is lower than accuracy, ship hits enemy. Otherwise wait for reload and try agian.
 		//print ("attacking");
 		if (isEngaged && canShoot && attackStance == true) {//Checks: enemy on radius, not reloading, selected, and in attack mode

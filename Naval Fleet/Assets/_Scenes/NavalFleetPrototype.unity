@@ -2764,50 +2764,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 61779182685419210, guid: 7670377bf4efdbc47823aec2c5e31a72,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1988154366726320, guid: 7670377bf4efdbc47823aec2c5e31a72, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212121503573275166, guid: 7670377bf4efdbc47823aec2c5e31a72,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0.7607844
-      objectReference: {fileID: 0}
-    - target: {fileID: 212121503573275166, guid: 7670377bf4efdbc47823aec2c5e31a72,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0.7607844
-      objectReference: {fileID: 0}
-    - target: {fileID: 212121503573275166, guid: 7670377bf4efdbc47823aec2c5e31a72,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0.7607844
-      objectReference: {fileID: 0}
-    - target: {fileID: 212121503573275166, guid: 7670377bf4efdbc47823aec2c5e31a72,
-        type: 2}
-      propertyPath: m_MaskInteraction
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212121503573275166, guid: 7670377bf4efdbc47823aec2c5e31a72,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212121503573275166, guid: 7670377bf4efdbc47823aec2c5e31a72,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212121503573275166, guid: 7670377bf4efdbc47823aec2c5e31a72,
-        type: 2}
-      propertyPath: m_SortingLayer
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7670377bf4efdbc47823aec2c5e31a72, type: 2}
   m_IsPrefabParent: 0
@@ -2897,7 +2853,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4901670562948972, guid: c709d1750c3530c4f95979e2911c79fd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4901670562948972, guid: c709d1750c3530c4f95979e2911c79fd, type: 2}
       propertyPath: m_LocalPosition.z
