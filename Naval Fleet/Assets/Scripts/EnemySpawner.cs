@@ -15,7 +15,6 @@ public class EnemySpawner : MonoBehaviour {
 	private int numberOfPlayerShips;
 
 	void OnEnable(){
-		//InvokeRepeating ("SpawnEnemy", delayStart, spawnRate);
 
 		startRate = spawnRate;
 
@@ -34,7 +33,7 @@ public class EnemySpawner : MonoBehaviour {
 		}
 
 		spawnRate = startRate;
-		spawnRate -= numberOfPlayerShips * 2;
+		spawnRate -= numberOfPlayerShips * 1.5f;
 
 		SpawnRange selectedPosition = spawnPositions [Random.Range (0, spawnPositions.Length)];
 
@@ -51,51 +50,6 @@ public class EnemySpawner : MonoBehaviour {
 		StartCoroutine (SpawnEnemy ());
 
 	}
-
-
-
-
-
-
-
-
-
-
-
-	/*void SpawnEnemy(){ //This function spawns enemies around the player
-		float angle = Random.Range (0.0f, Mathf.PI * 2);
-		Vector2 v = new Vector2 (Mathf.Sin (angle), Mathf.Cos (angle)); 	//Got this from https://answers.unity.com/questions/157061/spawning-at-a-random-position-away-from-the-player.html
-																			//My understanding is that creates a random vector 2 around the perimeter of a cricle.
-
-		Instantiate (enemyPrefab, v * range, Quaternion.identity);
-	}*/
-
-	/*IEnumerator SpawnEnemy(){
-		numberOfPlayerShips = 0;
-
-		Ship[] playerShips = GameObject.FindObjectsOfType<Ship> ();
-
-		foreach (Ship ship in playerShips) {
-			if (!ship.GetComponent<FishingBoat> ()) {
-				numberOfPlayerShips++;
-			}
-
-		}
-
-		float angle = Random.Range (0.0f, Mathf.PI * 2);
-		Vector2 v = new Vector2 (Mathf.Sin (angle), Mathf.Cos (angle)); 
-
-		Instantiate (enemyPrefab, v * range, Quaternion.identity);
-
-		yield return new WaitForSeconds (spawnRate);
-		StartCoroutine (SpawnEnemy ());
-	}*/
-	
-
-
-
-
-
 
 
 }
