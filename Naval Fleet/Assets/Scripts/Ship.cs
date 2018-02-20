@@ -43,7 +43,16 @@ public class Ship : MonoBehaviour {
 		healthBar = GetComponentInChildren <HealthBar> ();
 		propertiesCanvas.gameObject.SetActive (false);
 
-		//SetAttackStance (true);
+		Ship[] ships = GameObject.FindObjectsOfType<Ship> ();
+		for (int i = 0; i < ships.Length; i++) {
+			if (ships [i] == this) {
+				SelectShip ();
+
+			} else {
+				ships [i].DeSelectShip ();
+			}
+		}
+
 	}
 		
 	void Start () {
