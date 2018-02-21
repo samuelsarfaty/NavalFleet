@@ -14,6 +14,8 @@ public class EnemySpawner : MonoBehaviour {
 	public float startWait;
 	public float waveWait;
 
+	public bool allEnemiesKilled = false;
+
 	public SpawnRange[] spawnPositions;
 
 	private int numberOfPlayerShips;
@@ -26,25 +28,22 @@ public class EnemySpawner : MonoBehaviour {
 	IEnumerator SpawnWaves(){
 		yield return new WaitForSeconds (startWait);
 
-		while (true){
+		while (true){																	//Keep running this loop throught the entire game
 
+			yield return new WaitForSeconds (waveWait);
 			enemyCount = 0;
 			Ship[] playerShips = GameObject.FindObjectsOfType<Ship> ();
 
-			foreach (Ship ship in playerShips){
+			foreach (Ship ship in playerShips){											//Get how many combat ships the player has in game
 				if (!ship.GetComponent<FishingBoat>()){
 					enemyCount++;	
 				}
 			}
 
-			/*if (enemyCount <= 2) {
-				enemyCount = 2;
-			}*/
-
-			for (int i = 0; i < enemyCount + 1; i++) {
+			for (int i = 0; i < enemyCount + 1; i++) {									//Every wave spawn one more enemy than the player has ships
 				SpawnRange selectedPosition = spawnPositions [Random.Range (0, spawnPositions.Length)];
 
-				if (selectedPosition.GetComponent<SpawnRange> ().isHorizontal) {
+				if (selectedPosition.GetComponent<SpawnRange> ().isHorizontal) {		//Randomly choose whether to spawn enemies along the sides or top/bottom of the screen
 					Vector2 v = new Vector2 (Random.Range (selectedPosition.min, selectedPosition.max), selectedPosition.transform.position.y);
 					Instantiate (enemyPrefab, v, Quaternion.identity);
 
@@ -53,10 +52,11 @@ public class EnemySpawner : MonoBehaviour {
 					Instantiate (enemyPrefab, v, Quaternion.identity);
 				}
 
-				yield return new WaitForSeconds (spawnWait);
+				yield return new WaitForSeconds (spawnWait); //Waits for next enemy to appear in a wave
 			}
 
-			yield return new WaitForSeconds (waveWait);
+			//yield return new WaitForSeconds (waveWait);	//Waits for next wave to be called
+			yield return new WaitUntil(() => allEnemiesKilled); //Waits until all enemies are killed and then spawns the new wave
 		}
 	}
 

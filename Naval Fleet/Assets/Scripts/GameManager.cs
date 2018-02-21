@@ -43,6 +43,14 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		Enemy[] enemies = GameObject.FindObjectsOfType<Enemy> ();
+		if (enemies.Length <= 0) {
+			enemySpawner.allEnemiesKilled = true;
+		} else {
+			enemySpawner.allEnemiesKilled = false;
+		}
+
 		moneyText.text = coins.ToString();
 		if (coins == targetCoins) {	
 			levelManager.LoadLevel ("Win");
