@@ -25,6 +25,7 @@ public class Ship : MonoBehaviour {
 
 	public bool ? attackStance;
 
+	private UnitSelector[] uSelector;
 	private HealthBar healthBar;
 	private GameObject propertiesCanvas;
 	private GameObject shootingEffect;
@@ -40,6 +41,8 @@ public class Ship : MonoBehaviour {
 		if (reloader) {
 			reloader.gameObject.SetActive (false);
 		}
+
+		uSelector = GameObject.FindObjectsOfType<UnitSelector> ();
 
 		attributes = GetComponent<ShipAttributes>();
 		source = GetComponent<AudioSource>();
@@ -90,6 +93,10 @@ public class Ship : MonoBehaviour {
 		}*/
 
 		//Attack ();
+
+		foreach (UnitSelector selectedShip in uSelector) {
+			selectedShip.DeSelectButton ();
+		}
 
 		for (int i = 0; i < ships.Length; i++) {
 			if (ships [i] == this) {

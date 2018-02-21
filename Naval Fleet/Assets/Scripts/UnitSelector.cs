@@ -30,14 +30,15 @@ public class UnitSelector : MonoBehaviour {
 		SelectButton ();
 	}
 
-	void SelectButton(){
+	 void SelectButton(){
 		GetComponent<SpriteRenderer> ().color = startColor;
 		GetComponentInChildren<Canvas> ().enabled = true;
 		selectedShip = shipPrefab;
 	}	
 
-	void DeSelectButton(){
+	public void DeSelectButton(){
 		GetComponent<SpriteRenderer> ().color = Color.black;
 		GetComponentInChildren<Canvas> ().enabled = false;
 	}
+		
 }
