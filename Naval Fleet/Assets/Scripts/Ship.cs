@@ -156,7 +156,8 @@ public class Ship : MonoBehaviour {
 			float rotZ = Mathf.Atan2 (diff.y, diff.x) * Mathf.Rad2Deg;							// Link here: https://answers.unity.com/questions/585035/lookat-2d-equivalent-.html
 			transform.rotation = Quaternion.Euler (0, 0, rotZ + 90);						
 
-			float step = (attributes.speed / (destination - currentPos).magnitude * Time.deltaTime);		//Calculate the value of each step by dividing speed by the difference between the current position and the target position
+			float step = (attributes.speed / (destination - currentPos).magnitude * Time.deltaTime);	//Calculate the value of each step by dividing speed by the difference 
+																										//between the current position and the target position
 			float t = 0;
 			while (t <= 1.0f && !isEngaged) {
 				t += step;																	//Increase the value of t by step on each pass. 
@@ -167,21 +168,21 @@ public class Ship : MonoBehaviour {
 		}
 	}
 
-	public void Attack(){ //Generate a random value from 0-1. If the number is lower than accuracy, ship hits enemy. Otherwise wait for reload and try agian.
-		//print ("attacking");
-		if (isEngaged && canShoot && attackStance == true) {//Checks: enemy on radius, not reloading, selected, and in attack mode
+	public void Attack(){
 
-			attributes.damage = attackBar.bar.fillAmount * 10;
+		if (isEngaged && canShoot && attackStance == true) {	//Checks: enemy on radius, not reloading, selected, and in attack mode
 
-			shootingEffect.gameObject.SetActive(true);
-			float hitChance = Random.value;
-			source.PlayOneShot (cannonSound);
+			attributes.damage = attackBar.bar.fillAmount * 10; 	//Multiply the fill of the attack bar by 10 and deal that amount of damage: the more the bar is filled, the higher the damage.
 
-			if (hitChance <= attributes.accuracy) {
-				engagedEnemy.attributes.health -= attributes.damage;
+			shootingEffect.gameObject.SetActive(true);			//Show the particle effect of shooting
+			source.PlayOneShot (cannonSound);					//Play the sound of shooting the cannon.
+
+			float hitChance = Random.value;								//The original design included an random accuracy logic. The accuracy value goes from 0 to 1. 
+			if (hitChance <= attributes.accuracy) {						//If the randomly generated value is lower than the ship's accuracy, the shot would be a hit.
+				engagedEnemy.attributes.health -= attributes.damage;	//This feature was later removed, so all the ships' accuracy level was set at 1. Hence, shots will always hit.
 			}
 
-			StartCoroutine (Reload ());
+			StartCoroutine (Reload ());							//After shooting, reload.
 		}
 
 

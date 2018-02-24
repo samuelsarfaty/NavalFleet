@@ -78,23 +78,26 @@ public class Enemy : MonoBehaviour {
 	}
 
 	IEnumerator FightSequence(){
-		Attack ();
+		Attack ();														//Call the attack function
 		canShoot = false;
-		yield return new WaitForSeconds (attributes.reloadTime);
+		yield return new WaitForSeconds (attributes.reloadTime);		//Wait for reload time
 		shootingEffect.gameObject.SetActive (false);
-		canShoot = true;
+		canShoot = true;												//Allow to shoot again
 	}
 
 	void Attack(){
-		shootingEffect.gameObject.SetActive(true);
-		float hitChance = Random.value;
-		source.PlayOneShot (cannonSound);
+		shootingEffect.gameObject.SetActive(true);						//Show shooting particle effect
+		source.PlayOneShot (cannonSound);								//Play the shooting sound
 
-		if (Random.value <= attributes.accuracy) {
-			if (engagedShip.attackStance == true) {
+		float hitChance = Random.value;													//The original design included an random accuracy logic. The accuracy value goes from 0 to 1.
+
+		if (Random.value <= attributes.accuracy) {										//If the randomly generated value is lower than the ship's accuracy, the shot would be a hit.
+																						//This feature was later removed, so all the ships' accuracy level was set at 1. Hence, shots will always hit.
+
+			if (engagedShip.attackStance == true || engagedShip.attackStance == null) { //If the ship is in attack mode or no mode, the enemy deals full damage.
 				engagedShip.attributes.health -= attributes.damage;
 			} else {
-				engagedShip.attributes.health -= attributes.damage * 0.3f;
+				engagedShip.attributes.health -= attributes.damage * 0.3f; //If the ship is in defense mode, the enemy deals 30% of the damage it normally would.
 			}
 		}
 	}
