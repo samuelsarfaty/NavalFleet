@@ -97,7 +97,7 @@ public class Enemy : MonoBehaviour {
 			if (engagedShip.attackStance == true || engagedShip.attackStance == null) { //If the ship is in attack mode or no mode, the enemy deals full damage.
 				engagedShip.attributes.health -= attributes.damage;
 			} else {
-				engagedShip.attributes.health -= attributes.damage * 0.3f; //If the ship is in defense mode, the enemy deals 30% of the damage it normally would.
+				engagedShip.attributes.health -= attributes.damage * 0.2f; //If the ship is in defense mode, the enemy deals 20% of the damage it normally would.
 			}
 		}
 	}

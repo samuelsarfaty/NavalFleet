@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour {
 	//private float startRate;
 
 	public int enemyCount;
+	public int maxEnemies;
 	public float spawnWait;
 	public float startWait;
 	public float waveWait;
@@ -38,6 +39,10 @@ public class EnemySpawner : MonoBehaviour {
 				if (!ship.GetComponent<FishingBoat>()){
 					enemyCount++;	
 				}
+			}
+
+			if (enemyCount >= maxEnemies) {												//There can't be more enemies than maxEnemies.
+				enemyCount = maxEnemies;
 			}
 
 			for (int i = 0; i < enemyCount + 1; i++) {													//Every wave spawn one more enemy than the player has ships

@@ -13,7 +13,8 @@ public class Ocean : MonoBehaviour {
 		Ship[] ships = GameObject.FindObjectsOfType<Ship> ();
 
 		for (int i = 0; i < ships.Length; i++) { 					//Iterate through all the ships
-			if (ships [i].selected == true) {						//If one of the ships is selected and moving, stop the last movement and move towards new position. Otherwise just move to the clicked position.
+			if (ships [i].selected == true) {						//If one of the ships is selected and moving, stop the last movement and move towards new position. 
+																	//Otherwise just move to the clicked position.
 				if (ships [i].lastRoutine != null) {
 					ships [i].StopMove (ships [i].lastRoutine);
 				}
@@ -22,6 +23,9 @@ public class Ocean : MonoBehaviour {
 				return;												//The execution of the function stops if a ship was moved, otherwise, it continues.
 			}
 		}
+
+
+
 		if (GameManager.coins >= UnitSelector.selectedShip.GetComponent<ShipAttributes> ().price) { //If player has enough money to purchase the selected ship, spawn it.
 			SpawnShip (mousePos);
 		}
