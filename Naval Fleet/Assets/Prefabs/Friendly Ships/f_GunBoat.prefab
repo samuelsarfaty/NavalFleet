@@ -1132,6 +1132,7 @@ MonoBehaviour:
   attackHorn: {fileID: 8300000, guid: 3582929389c13764395324de8b213d45, type: 3}
   attackBar: {fileID: 114368069129119370}
   reloader: {fileID: 114747294867120232}
+  stanceImage: {fileID: 114282533264823080}
   source: {fileID: 0}
 --- !u!114 &114743964577611950
 MonoBehaviour:

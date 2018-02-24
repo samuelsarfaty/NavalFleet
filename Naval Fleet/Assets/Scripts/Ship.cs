@@ -20,6 +20,8 @@ public class Ship : MonoBehaviour {
 	public AttackBar attackBar;
 	public Reloader reloader;
 
+	public Image stanceImage;
+
 	[HideInInspector]
 	public  AudioSource source;
 
@@ -75,7 +77,12 @@ public class Ship : MonoBehaviour {
 
 		if (attributes.health <= 0 && attributes.isDying == false) {
 			StopCoroutine (Reload ());
+
 			attackStance = null;
+
+			if (stanceImage) {
+				stanceImage.color = Color.clear;
+			}
 			attributes.Die ();
 		}
 			
